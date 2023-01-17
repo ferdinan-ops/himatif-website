@@ -1,7 +1,9 @@
-import { Layout } from "../components";
+import { Hero, Layout } from "../components";
 
 export default function Home() {
-    return (
-        <Layout title="Himpunan Mahasiswa Teknik Informatika (HIMATIF) UNIKA"></Layout>
-    );
+   return (
+      <Layout title="Himpunan Mahasiswa Teknik Informatika (HIMATIF) UNIKA">
+         <Hero />
+      </Layout>
+   );
 }

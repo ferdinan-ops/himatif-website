@@ -1,3 +1,4 @@
-import Layout from "./Layout";
+import Layout from "./AllPages/Layout";
+import Hero from "./Home/Hero";
 
-export { Layout };
+export { Layout, Hero };

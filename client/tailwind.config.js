@@ -15,7 +15,7 @@ module.exports = {
       },
       extend: {
          fontFamily: {
-            sans: ["PT Sans", "sans-serif"],
+            sans: ["Poppins", "PT Sans", "sans-serif"],
             serif: ["PT Serif", "serif"],
          },
       },

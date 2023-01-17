@@ -1,13 +1,15 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Logo } from "../../assets";
 
 const Header = () => {
    return (
-      <header className="fixed top-0 right-0 left-0 h-20 flex items-center font-sans bg-[rgba(0, 0, 0, 0.2)]">
-         <div className="container mx-auto flex items-center justify-between">
+      <header className="fixed top-0 right-0 left-0 h-20 flex items-center bg-black bg-opacity-[0.2] z-50">
+         <div className="container mx-auto flex items-center justify-between text-white font-sans">
             <div className="flex items-center gap-4">
-               <img src="/images/logo.png" alt="logo" className="w-8 h-8" />
-               <h1 className="text-lg font-bold tracking-[0.1em]">
+               <Image src={Logo} alt="" className="w-9 h-9 rounded-full" />
+               <h1 className="font-bold tracking-[0.2em]">
                   HIMPUNAN MAHASISWA TEKNIK INFORMATIKA
                </h1>
             </div>
