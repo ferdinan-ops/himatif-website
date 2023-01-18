@@ -15,8 +15,8 @@ module.exports = {
       },
       extend: {
          fontFamily: {
-            sans: ["Poppins", "PT Sans", "sans-serif"],
-            serif: ["PT Serif", "serif"],
+            sans: ["Poppins", "sans-serif"],
+            logo: ["Montserrat", "sans-serif"],
          },
       },
    },
