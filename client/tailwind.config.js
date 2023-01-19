@@ -14,6 +14,12 @@ module.exports = {
          },
       },
       extend: {
+         colors: {
+            // primary: "#001F82",
+            primary: "#0F68B9",
+            "font-black": "#29384E",
+            "font-gray": "#535961",
+         },
          fontFamily: {
             sans: ["Poppins", "sans-serif"],
             logo: ["Montserrat", "sans-serif"],

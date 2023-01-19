@@ -3,30 +3,16 @@ import React from "react";
 import { Banner } from "../../assets";
 
 const Hero = () => {
-   const src = "https://source.unsplash.com/random/1920x1080/?indonesian";
    return (
       <section className="relative min-h-screen bg-black font-sans">
          <div className="absolute z-0 flex h-full w-full bg-[#343A40]">
             <div className="relative h-full w-full">
-               {/* <Image
-                  loader={() => src}
-                  src={src}
-                  alt=""
-                  fill="fill"
-                  className="object-cover"
-               /> */}
-               <Image
-                  src={Banner}
-                  alt=""
-                  fill="fill"
-                  className="object-cover"
-               />
+               <Image src={Banner} alt="" fill="fill" className="object-cover brightness-50" />
             </div>
-            <div className="absolute h-full w-full bg-gradient-to-t from-black/50 to-black/50"></div>
          </div>
          <div className="container relative mx-auto flex min-h-screen w-full px-4 pt-20 pb-[56px] md:px-6 md:pb-[70px] xl:px-0">
             <div className="mt-auto flex flex-col gap-2 text-white md:gap-4">
-               <button className="w-fit rounded-full bg-white/25 px-3 py-1.5 font-logo text-[11px] font-semibold uppercase hover:bg-white/40 md:px-4 md:py-2 md:text-xs">
+               <button className="w-fit rounded-lg bg-white/25 px-2 py-1 font-logo text-[10px] font-medium uppercase hover:bg-white/40 md:px-4 md:py-2 md:text-xs md:font-semibold">
                   pertemuan
                </button>
                <h1 className="max-w-[530px] text-2xl font-bold leading-[38px] md:text-4xl md:leading-[48px]">
