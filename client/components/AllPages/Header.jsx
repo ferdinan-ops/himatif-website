@@ -44,7 +44,7 @@ const Header = () => {
          className={`fixed top-0 right-0 left-0 z-50 flex items-center px-4 transition-all md:px-6 xl:px-0 ${
             isTop
                ? "h-24 bg-transparent text-font-black xl:text-white"
-               : "h-20 bg-white text-font-black"
+               : "h-20 bg-white text-font-black shadow"
          }`}
       >
          <div className="container mx-auto flex items-center justify-between font-sans">
