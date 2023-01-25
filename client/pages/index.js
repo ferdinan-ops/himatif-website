@@ -1,4 +1,4 @@
-import { About, Hero, Layout, Misi, Visi } from "../components";
+import { About, Footer, Hero, Layout, Misi, Visi } from "../components";
 import { hero } from "../utils/data";
 
 export default function Home() {
@@ -8,6 +8,7 @@ export default function Home() {
          <About />
          <Visi />
          <Misi />
+         <Footer />
       </Layout>
    );
 }

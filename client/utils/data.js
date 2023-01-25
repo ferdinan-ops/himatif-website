@@ -1,8 +1,24 @@
+import { BsTelephone } from "react-icons/bs";
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FiMail } from "react-icons/fi";
+
 export const menu = [
    { href: "/", title: "Beranda" },
    { href: "/structure", title: "Struktur" },
    { href: "/blogs", title: "Blog" },
    { href: "/contact-us", title: "Hubungi Kami" },
+];
+
+export const sosialMedia = [
+   {
+      href: "https://google.com/",
+      icon: <FaFacebookF className="text-lg" />,
+   },
+   { href: "https://google.com/", icon: <FaTwitter className="text-lg" /> },
+   {
+      href: "https://google.com/",
+      icon: <FaInstagram className="text-lg" />,
+   },
 ];
 
 export const hero = [

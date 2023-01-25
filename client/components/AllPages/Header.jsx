@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Logo } from "../../assets";
 import { useRouter } from "next/router";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
+import { HiBars3, HiXMark } from "react-icons/hi2";
 import { menu } from "../../utils/data";
 
 const NavLink = ({ href, children, isTop }) => {
@@ -67,8 +67,8 @@ const Header = () => {
                   isShow ? "translate-x-0" : "-translate-x-full"
                }`}
             >
-               <XMarkIcon
-                  className="w-10 self-end pt-4 xl:hidden"
+               <HiXMark
+                  className="w-fit self-end pt-4 text-5xl xl:hidden"
                   onClick={() => setIsShow(false)}
                />
                {menu.map((item, index) => (
@@ -77,8 +77,8 @@ const Header = () => {
                   </NavLink>
                ))}
             </nav>
-            <Bars3Icon
-               className={`w-7 xl:hidden ${
+            <HiBars3
+               className={`text-3xl xl:hidden  ${
                   isTop ? "text-white" : "text-font-black"
                }`}
                onClick={() => setIsShow(true)}

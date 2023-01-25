@@ -2,6 +2,12 @@ import Image from "next/image";
 import React from "react";
 
 const Misi = () => {
+   const test = async () => {
+      const res = await fetch("http://localhost:3000/api/hello");
+      const data = await res.json();
+      console.log(data);
+   };
+
    return (
       <section className="bg-white text-font-black">
          <div className="container mx-auto py-16 md:py-20">

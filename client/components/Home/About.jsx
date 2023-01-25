@@ -1,6 +1,12 @@
 import React from "react";
 
 const About = () => {
+   const test = async () => {
+      const res = await fetch("http://localhost:3000/api/hello");
+      const data = await res.json();
+      console.log(data);
+   };
+
    return (
       <section className="bg-white">
          <div className="container mx-auto py-16 text-font-black md:py-20">
