@@ -1,6 +1,4 @@
-import { BsTelephone } from "react-icons/bs";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
-import { FiMail } from "react-icons/fi";
 
 export const menu = [
    { href: "/", title: "Beranda" },

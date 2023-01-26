@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { Logo } from "../../assets";
-import { menu, sosialMedia, footerMenu } from "../../utils/data";
+import { menu, sosialMedia } from "../../utils/data";
 import { FiMail } from "react-icons/fi";
 import { BsTelephone } from "react-icons/bs";
 

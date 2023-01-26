@@ -1,19 +1,17 @@
 import Image from "next/image";
 import React from "react";
+import { VisiImg } from "../../assets";
 
 const Visi = () => {
    return (
       <section className="bg-white text-font-black">
-         <div className="container mx-auto py-16 md:py-20">
+         <div className="container mx-auto py-16 md:py-28">
             <div className="flex items-center gap-[100px]">
-               <div className="relative h-[600px] w-[600px] flex-1 overflow-hidden rounded-lg">
-                  <Image
-                     src="https://source.unsplash.com/random/500×500/?university"
-                     alt=""
-                     fill="fill"
-                     className="object-cover"
-                  />
-               </div>
+               <Image
+                  src={VisiImg}
+                  alt=""
+                  className="w-[600px] flex-1 overflow-hidden rounded-lg object-cover"
+               />
                <div className="flex flex-1 flex-col gap-[52px]">
                   <h1 className="relative z-10 w-fit font-logo text-6xl font-bold leading-[72px] after:absolute after:bottom-1 after:left-0 after:-z-10 after:h-5 after:w-full after:bg-primary/20 after:content-['']">
                      Visi HIMATIF
