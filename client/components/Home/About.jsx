@@ -4,8 +4,8 @@ import { sosialMedia } from "../../utils/data";
 
 const About = () => {
    return (
-      <section className="bg-white">
-         <div className="container mx-auto py-16 text-font-black md:py-28">
+      <section className="bg-white pt-16 md:pt-28">
+         <div className="container mx-auto text-font-black">
             <h1 className="relative z-10 mx-auto w-fit font-logo text-lg font-bold after:absolute after:bottom-1 after:left-0 after:-z-10 after:h-2 after:w-full after:bg-primary/20 after:content-['']">
                Tentang HIMATIF
             </h1>
@@ -36,6 +36,22 @@ const About = () => {
                      {item.icon}
                   </Link>
                ))}
+            </div>
+         </div>
+         <div className="relative mt-20 h-64 overflow-x-hidden">
+            <div className="radial-gradient absolute left-0 right-0 top-0 h-28 w-[105%] origin-top-left rotate-3 overflow-hidden text-[#060919]">
+               <span className="absolute top-1/2 w-max -translate-y-1/2 font-logo text-5xl font-bold">
+                  HIMPUNAN MAHASISWA TEKNIK INFORMATIKA{" "}
+                  <span className="text-red-500">♥️</span> HIMPUNAN MAHASISWA
+                  TEKNIK INFORMATIKA
+               </span>
+            </div>
+            <div className="radial-gradient absolute -left-3 top-0 z-10 h-28 w-[105%] origin-top-right -rotate-3 overflow-hidden text-[#060919] shadow-2xl">
+               <span className="absolute top-1/2 w-max -translate-y-1/2 font-logo text-5xl font-bold">
+                  HIMPUNAN MAHASISWA TEKNIK INFORMATIKA{" "}
+                  <span className="text-red-500">♥️</span> HIMPUNAN MAHASISWA
+                  TEKNIK INFORMATIKA
+               </span>
             </div>
          </div>
       </section>

@@ -10,4 +10,41 @@
       overflow: hidden;
       text-overflow: ellipsis;
    }
+
+   .radial-gradient {
+      background: radial-gradient(
+         127.68% 423.02% at 31.82% -13.39%,
+         #00e0ff 12.5%,
+         #0038ff 100%
+      );
+   }
+
+   @keyframes marqueeToLeft {
+      0% {
+         transform: translate(100%, -50%);
+      }
+      100% {
+         transform: translate(-100%, -50%);
+      }
+   }
+
+   @keyframes marqueeToRight {
+      0% {
+         transform: translate(-100%, -50%);
+      }
+      100% {
+         transform: translate(100%, -50%);
+      }
+   }
+
+   .animation-1 {
+      animation: marqueeToLeft 30s linear infinite;
+      animation-delay: -30s;
+      top: 50%;
+   }
+   .animation-2 {
+      animation: marqueeToRight 30s linear infinite;
+      animation-delay: -30s;
+      top: 50%;
+   }
 }
