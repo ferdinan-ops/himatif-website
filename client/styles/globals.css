@@ -38,8 +38,8 @@
    }
 
    .animation-1 {
-      animation: marqueeToLeft 30s linear infinite;
-      animation-delay: -30s;
+      animation: marqueeToLeft 15s linear infinite;
+      animation-delay: -15s;
       top: 50%;
    }
    .animation-2 {

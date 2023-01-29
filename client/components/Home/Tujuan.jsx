@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { tujuan } from "../../utils/data";
 
 const Tujuan = () => {
    return (
@@ -10,65 +11,29 @@ const Tujuan = () => {
                   Tujuan HIMATIF
                </h1>
                <span className="mt-4 max-w-4xl text-center text-lg text-font-gray">
-                  Our CyberNews Investigation team uses white hacking techniques
-                  to find and safely cybersecurity threats & vulnerabilities.
+                  Organisasi Himpunan Mahasiswa Teknik Informatika (HIMATIF)
+                  dibentuk untuk mencapai tujuan berikut
                </span>
             </div>
-            <div className="mt-[104px] flex justify-between">
-               <div className="max-w-[323px]">
-                  <div className="relative h-80 w-full overflow-hidden rounded-lg">
-                     <Image
-                        src="https://source.unsplash.com/random/900×700/?university"
-                        alt=""
-                        fill="fill"
-                        className="object-cover"
-                     />
+            <div className="mt-[104px] flex justify-between gap-20">
+               {tujuan.map((item, index) => (
+                  <div className="flex-1" key={index}>
+                     <div className="relative h-[265px] w-full overflow-hidden rounded-lg">
+                        <Image
+                           src={item.image}
+                           alt=""
+                           fill="fill"
+                           className="object-cover"
+                        />
+                     </div>
+                     <div className="mt-6 flex flex-col gap-2">
+                        <h2 className="font-logo text-3xl font-bold text-font-black">
+                           {item.title}
+                        </h2>
+                        <p className="text-font-gray">{item.desc}</p>
+                     </div>
                   </div>
-                  <div className="mt-6 flex flex-col gap-2">
-                     <h2 className="font-logo text-3xl font-bold text-font-black">
-                        Tips on choosing a university
-                     </h2>
-                     <p className="text-font-gray">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                     </p>
-                  </div>
-               </div>
-               <div className="max-w-[323px]">
-                  <div className="relative h-80 w-full overflow-hidden rounded-lg">
-                     <Image
-                        src="https://source.unsplash.com/random/900×700/?university"
-                        alt=""
-                        fill="fill"
-                        className="object-cover"
-                     />
-                  </div>
-                  <div className="mt-6 flex flex-col gap-2">
-                     <h2 className="font-logo text-3xl font-bold text-font-black">
-                        Tips on choosing a university
-                     </h2>
-                     <p className="text-font-gray">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                     </p>
-                  </div>
-               </div>
-               <div className="max-w-[323px]">
-                  <div className="relative h-80 w-full overflow-hidden rounded-lg">
-                     <Image
-                        src="https://source.unsplash.com/random/900×700/?university"
-                        alt=""
-                        fill="fill"
-                        className="object-cover"
-                     />
-                  </div>
-                  <div className="mt-6 flex flex-col gap-2">
-                     <h2 className="font-logo text-3xl font-bold text-font-black">
-                        Tips on choosing a university
-                     </h2>
-                     <p className="text-font-gray">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                     </p>
-                  </div>
-               </div>
+               ))}
             </div>
          </div>
          <div className="radial-gradient relative h-28 overflow-hidden text-[#060919]">

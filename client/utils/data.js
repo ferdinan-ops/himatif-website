@@ -42,3 +42,26 @@ export const hero = [
       img: "https://source.unsplash.com/random/900×700/?politician",
    },
 ];
+
+export const tujuan = [
+   {
+      title: "Menjalankan visi dan misi",
+      desc: "Menjalankan visi dan misi HIMATIF sesuai dengan yang telah ditetapkan",
+      image: "https://source.unsplash.com/random/900×700/?mission",
+   },
+   {
+      title: "Melaksanakan kegiatan",
+      desc: "Melaksanakan kegiatan sesuai dengan program kerja HIMATIF",
+      image: "https://source.unsplash.com/random/900×700/?work-program",
+   },
+   {
+      title: "Melaksanakan Koordinasi",
+      desc: "Melaksanakan koordinasi dengan program studi atas program kerjanya",
+      image: "https://source.unsplash.com/random/900×700/?collaboration",
+   },
+   {
+      title: "Kepengurusan organisasi",
+      desc: "Menjalankan kepengurusan organisasi selama 1 periode dengan penuh tanggung jawab",
+      image: "https://source.unsplash.com/random/900×700/?campus-organization",
+   },
+];
