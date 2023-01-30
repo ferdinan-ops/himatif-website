@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import { menu } from "../../utils/data";
 
-const NavLink = ({ href, children, isTop }) => {
+const NavLink = ({ href, children, isTop, isHome }) => {
    const router = useRouter();
    return (
       <Link
@@ -15,7 +15,9 @@ const NavLink = ({ href, children, isTop }) => {
             router.pathname === href
                ? ""
                : isTop
-               ? "text-font-black/60 hover:text-font-black md:text-white/60 md:hover:text-white"
+               ? `text-font-black/60 hover:text-font-black ${
+                    isHome && "md:text-white/60 md:hover:text-white"
+                 }`
                : "text-font-black/60 hover:text-font-black"
          }`}
       >
@@ -24,7 +26,7 @@ const NavLink = ({ href, children, isTop }) => {
    );
 };
 
-const Header = () => {
+const Header = ({ isHome }) => {
    const [isShow, setIsShow] = useState(false);
    const [isTop, setIsTop] = useState(true);
 
@@ -39,11 +41,15 @@ const Header = () => {
       };
    }, []);
 
+   const home = isHome ? "text-white" : "text-font-black";
+
    return (
       <header
          className={`fixed top-0 right-0 left-0 z-50 flex items-center px-4 transition-all md:px-6 xl:px-0 ${
             isTop
-               ? "h-24 bg-transparent text-font-black xl:text-white"
+               ? `h-24 bg-transparent ${
+                    isHome ? "text-font-black xl:text-white" : "text-font-black"
+                 }`
                : "h-20 bg-white text-font-black shadow"
          }`}
       >
@@ -56,7 +62,7 @@ const Header = () => {
                />
                <h1
                   className={`font-logo text-lg font-semibold tracking-wider md:text-[22px] ${
-                     isTop ? "text-white" : "text-font-black"
+                     isTop ? home : "text-font-black"
                   }`}
                >
                   HIMATIF
@@ -72,14 +78,19 @@ const Header = () => {
                   onClick={() => setIsShow(false)}
                />
                {menu.map((item, index) => (
-                  <NavLink href={item.href} isTop={isTop} key={index}>
+                  <NavLink
+                     href={item.href}
+                     isTop={isTop}
+                     key={index}
+                     isHome={isHome}
+                  >
                      {item.title}
                   </NavLink>
                ))}
             </nav>
             <HiBars3
                className={`text-3xl xl:hidden  ${
-                  isTop ? "text-white" : "text-font-black"
+                  isTop ? home : "text-font-black"
                }`}
                onClick={() => setIsShow(true)}
             />

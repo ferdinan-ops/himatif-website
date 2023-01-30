@@ -65,3 +65,12 @@ export const tujuan = [
       image: "https://source.unsplash.com/random/900×700/?campus-organization",
    },
 ];
+
+export const categories = [
+   "Rapat",
+   "Program Kerja",
+   "Event",
+   "Pertemuan",
+   "Teknologi",
+   "Kerjasama",
+];

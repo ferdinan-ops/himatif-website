@@ -2,13 +2,13 @@ import Head from "next/head";
 import React from "react";
 import Header from "./Header";
 
-const Layout = ({ children, title }) => {
+const Layout = ({ children, title, isHome }) => {
    return (
       <>
          <Head>
             <title>{title}</title>
          </Head>
-         <Header />
+         <Header isHome={isHome} />
          <main>{children}</main>
       </>
    );
