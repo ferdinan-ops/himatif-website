@@ -45,31 +45,29 @@ const Header = ({ isHome }) => {
 
    return (
       <header
-         className={`fixed top-0 right-0 left-0 z-50 flex items-center px-4 transition-all md:px-6 xl:px-0 ${
-            isTop
-               ? `h-24 bg-transparent ${
-                    isHome ? "text-font-black xl:text-white" : "text-font-black"
+         className={`fixed inset-x-0 top-0 z-50 flex h-24 items-center px-6 transition-all xl:px-0 ${
+            !isTop
+               ? "bg-white text-font-black shadow"
+               : `${
+                    !isHome
+                       ? "bg-white text-font-black"
+                       : "bg-transparent text-font-black xl:text-white"
                  }`
-               : "h-20 bg-white text-font-black shadow"
          }`}
       >
          <div className="container mx-auto flex items-center justify-between font-sans">
-            <div className="flex items-center gap-4">
+            <Link className="flex items-center gap-4" href="/">
                <Image
                   src={Logo}
                   alt=""
                   className="h-7 w-7 rounded-full md:h-9 md:w-9"
                />
-               <h1
-                  className={`font-logo text-lg font-semibold tracking-wider md:text-[22px] ${
-                     isTop ? home : "text-font-black"
-                  }`}
-               >
+               <h1 className={`logo ${isTop ? home : "text-font-black"}`}>
                   HIMATIF
                </h1>
-            </div>
+            </Link>
             <nav
-               className={`fixed inset-0 flex flex-col items-start gap-4 bg-white px-4 transition-all xl:static xl:translate-x-0 xl:flex-row xl:items-center xl:gap-7 xl:bg-transparent xl:p-0 ${
+               className={`nav xl:translate-x-0 ${
                   isShow ? "translate-x-0" : "-translate-x-full"
                }`}
             >
@@ -89,7 +87,7 @@ const Header = ({ isHome }) => {
                ))}
             </nav>
             <HiBars3
-               className={`text-3xl xl:hidden  ${
+               className={`text-3xl xl:hidden ${
                   isTop ? home : "text-font-black"
                }`}
                onClick={() => setIsShow(true)}

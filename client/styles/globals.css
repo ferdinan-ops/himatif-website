@@ -19,6 +19,18 @@
       );
    }
 
+   .header {
+      @apply fixed inset-x-0 top-0 z-50 flex h-24 items-center px-4 transition-all md:px-6 xl:px-0;
+   }
+
+   .nav {
+      @apply fixed inset-0 flex flex-col items-start gap-4 bg-white px-4 transition-all xl:static xl:flex-row xl:items-center xl:gap-7 xl:bg-transparent xl:p-0;
+   }
+
+   .logo {
+      @apply font-logo text-lg font-semibold tracking-wider md:text-[22px];
+   }
+
    @keyframes marqueeToLeft {
       0% {
          transform: translate(100%, -50%);
@@ -28,23 +40,9 @@
       }
    }
 
-   @keyframes marqueeToRight {
-      0% {
-         transform: translate(-100%, -50%);
-      }
-      100% {
-         transform: translate(100%, -50%);
-      }
-   }
-
    .animation-1 {
       animation: marqueeToLeft 15s linear infinite;
       animation-delay: -15s;
-      top: 50%;
-   }
-   .animation-2 {
-      animation: marqueeToRight 30s linear infinite;
-      animation-delay: -30s;
       top: 50%;
    }
 }

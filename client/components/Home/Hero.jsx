@@ -34,7 +34,7 @@ const Hero = ({ blogs }) => {
                         />
                      </div>
                   </div>
-                  <div className="container relative mx-auto flex min-h-screen w-full px-4 pt-20 pb-[56px] md:px-6 md:pb-[70px] xl:px-0">
+                  <div className="container relative mx-auto flex min-h-screen w-full px-6 pt-20 pb-[56px] md:pb-[70px] xl:px-0">
                      <div className="mt-auto flex flex-col gap-2 text-white md:gap-4">
                         <button className="w-fit rounded-lg bg-white/25 px-2 py-1 font-logo text-[10px] font-medium uppercase hover:bg-white/40 md:px-4 md:py-2 md:text-xs md:font-semibold">
                            {blog.tag}
@@ -62,13 +62,14 @@ const Hero = ({ blogs }) => {
                               <span
                                  key={item.title}
                                  className={[
-                                    "h-2 w-2 cursor-pointer rounded-full",
+                                    "h-2 w-2 cursor-pointer rounded-full md:h-3 md:w-3",
                                     i === realSlide
                                        ? "bg-white"
                                        : "bg-white/30",
                                  ].join(" ")}
                                  onClick={() =>
-                                    i !== realSlide && swiper.current.slideTo(i)
+                                    i !== realSlide &&
+                                    swiper.current.slideTo(i + 1)
                                  }
                               />
                            ))}

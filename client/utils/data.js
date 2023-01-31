@@ -74,3 +74,12 @@ export const categories = [
    "Teknologi",
    "Kerjasama",
 ];
+
+export const posts = [
+   { image: "https://source.unsplash.com/random/900×700/?university" },
+   { image: "https://source.unsplash.com/random/900×700/?technology" },
+   { image: "https://source.unsplash.com/random/900×700/?work" },
+   { image: "https://source.unsplash.com/random/900×700/?coding" },
+   { image: "https://source.unsplash.com/random/900×700/?program" },
+   { image: "https://source.unsplash.com/random/900×700/?design" },
+];
