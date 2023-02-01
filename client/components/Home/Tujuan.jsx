@@ -7,15 +7,20 @@ const Tujuan = () => {
       <section className="bg-white">
          <div className="container mx-auto py-14 px-6 text-font-black md:py-28 md:px-0">
             <div className="flex flex-col items-center ">
-               <h1 className="relative z-10 mx-auto w-fit font-logo font-bold after:absolute after:left-0 after:bottom-[2px] after:-z-10 after:h-2 after:w-full after:bg-primary/20 after:content-[''] md:text-lg md:after:bottom-1">
+               <h1 className="relative z-10 mx-auto w-fit font-logo text-sm font-bold after:absolute after:left-0 after:bottom-[2px] after:-z-10 after:h-2 after:w-full after:bg-primary/20 after:content-[''] md:text-lg md:after:bottom-1">
                   Tujuan HIMATIF
                </h1>
-               <span className="mt-4 text-center text-font-gray md:max-w-4xl md:text-lg">
+               <span className="mt-4 text-center text-base text-font-gray md:max-w-[90%] xl:max-w-4xl xl:text-xl">
                   Organisasi Himpunan Mahasiswa Teknik Informatika (HIMATIF)
                   dibentuk untuk mencapai tujuan berikut
                </span>
             </div>
-            <div className="mt-10 flex flex-col justify-between gap-10 md:mt-[104px] md:flex-wrap md:gap-20 xl:flex-nowrap">
+            <div
+               className="
+                        mt-10 flex flex-col justify-between gap-10 
+                        md:mt-20 md:flex-row md:flex-wrap md:justify-start md:gap-20
+                        xl:mt-[104px] xl:flex-nowrap xl:gap-20"
+            >
                {tujuan.map((item, index) => (
                   <div className="flex-1" key={index}>
                      <div className="relative h-[200px] w-full overflow-hidden rounded-lg md:h-[265px]">
