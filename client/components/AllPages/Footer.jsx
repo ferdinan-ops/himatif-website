@@ -9,9 +9,9 @@ import { BsTelephone } from "react-icons/bs";
 const Footer = () => {
    return (
       <footer className="bg-primary">
-         <div className="container mx-auto py-[72px] px-6 xl:px-0">
-            <div className="flex flex-col justify-between md:flex-row">
-               <div className="flex max-w-sm flex-col">
+         <div className="container mx-auto py-[72px] px-6 md:px-0">
+            <div className="flex flex-col justify-between xl:flex-row">
+               <div className="flex max-w-sm md:max-w-md flex-col">
                   <div className="flex items-center gap-4 font-logo font-bold text-white ">
                      <Image src={Logo} alt="" className="h-11 w-fit" />
                      <h2 className="text-3xl">HIMATIF</h2>
@@ -23,17 +23,13 @@ const Footer = () => {
                   </p>
                   <div className="mt-8 flex items-center gap-8 text-font-black">
                      {sosialMedia.map((item, index) => (
-                        <Link
-                           key={index}
-                           href={item.href}
-                           className="rounded-full bg-white p-2 hover:bg-slate-300"
-                        >
+                        <Link key={index} href={item.href} className="rounded-full bg-white p-2 hover:bg-slate-300">
                            {item.icon}
                         </Link>
                      ))}
                   </div>
                </div>
-               <div className="mt-10 flex flex-col justify-between gap-10 md:mt-0 md:flex-row md:gap-16">
+               <div className="mt-10 flex flex-col justify-between gap-10 md:justify-start xl:justify-between md:flex-row md:gap-16 xl:mt-0">
                   <div className="flex min-w-[280px] flex-col text-white">
                      <h3 className="border-b-2 border-white pb-3 text-lg font-medium">
                         Halaman

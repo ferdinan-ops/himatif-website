@@ -15,12 +15,7 @@ const Tujuan = () => {
                   dibentuk untuk mencapai tujuan berikut
                </span>
             </div>
-            <div
-               className="
-                        mt-10 flex flex-col justify-between gap-10 
-                        md:mt-20 md:flex-row md:flex-wrap md:justify-start md:gap-20
-                        xl:mt-[104px] xl:flex-nowrap xl:gap-20"
-            >
+            <div className="mt-10 flex flex-col justify-between gap-10 md:mt-20 md:flex-row md:flex-wrap md:justify-start md:gap-20 xl:mt-[104px] xl:flex-nowrap xl:gap-20">
                {tujuan.map((item, index) => (
                   <div className="flex-1" key={index}>
                      <div className="relative h-[200px] w-full overflow-hidden rounded-lg md:h-[265px]">
@@ -43,8 +38,8 @@ const Tujuan = () => {
                ))}
             </div>
          </div>
-         <div className="radial-gradient relative h-20 overflow-hidden text-[#060919] md:h-28">
-            <span className="animation-1 absolute w-max font-logo text-3xl font-bold md:text-5xl">
+         <div className="radial-gradient relative h-20 overflow-hidden text-[#060919] xl:h-28">
+            <span className="animation-1 absolute w-max font-logo text-3xl font-bold xl:text-5xl">
                HIMPUNAN MAHASISWA TEKNIK INFORMATIKA{" "}
                <span className="text-red-500">♥️</span> HIMPUNAN MAHASISWA
                TEKNIK INFORMATIKA
