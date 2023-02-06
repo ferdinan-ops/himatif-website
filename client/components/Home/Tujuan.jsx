@@ -5,7 +5,7 @@ import { tujuan } from "../../utils/data";
 const Tujuan = () => {
    return (
       <section className="bg-white">
-         <div className="container mx-auto py-14 px-6 text-font-black md:py-28 md:px-0">
+         <div className="container mx-auto py-14 px-6 text-font-black md:py-28 xl:px-0">
             <div className="flex flex-col items-center ">
                <h1 className="relative z-10 mx-auto w-fit font-logo text-sm font-bold after:absolute after:left-0 after:bottom-[2px] after:-z-10 after:h-2 after:w-full after:bg-primary/20 after:content-[''] md:text-lg md:after:bottom-1">
                   Tujuan HIMATIF

@@ -5,7 +5,7 @@ import { VisiImg } from "../../assets";
 const Visi = () => {
    return (
       <section className="bg-white text-font-black">
-         <div className="container mx-auto -mt-10 px-6 pb-14 md:mt-4 md:px-0 xl:mt-0 xl:py-28">
+         <div className="container mx-auto -mt-10 px-6 pb-14 md:mt-4 xl:mt-0 xl:px-0 xl:py-28">
             <div className="flex flex-col items-center gap-8 md:flex-row md:gap-16 xl:gap-[100px]">
                <Image
                   src={VisiImg}

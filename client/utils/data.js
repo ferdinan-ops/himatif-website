@@ -10,12 +10,15 @@ export const menu = [
 export const sosialMedia = [
    {
       href: "https://google.com/",
-      icon: <FaFacebookF className="text-lg" />,
+      icon: <FaFacebookF className="text-base md:text-lg" />,
    },
-   { href: "https://google.com/", icon: <FaTwitter className="text-lg" /> },
    {
       href: "https://google.com/",
-      icon: <FaInstagram className="text-lg" />,
+      icon: <FaTwitter className="text-base md:text-lg" />,
+   },
+   {
+      href: "https://google.com/",
+      icon: <FaInstagram className="text-base md:text-lg" />,
    },
 ];
 

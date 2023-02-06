@@ -5,7 +5,7 @@ import { MisiImg } from "../../assets";
 const Misi = () => {
    return (
       <section className="bg-white text-font-black">
-         <div className="container mx-auto md:py-14 xl:py-28">
+         <div className="container mx-auto md:py-14 px-6 xl:px-0 xl:py-28">
             <div className="flex flex-col items-center gap-8 md:flex-row md:gap-16 xl:gap-[100px]">
                <Image
                   src={MisiImg}

@@ -26,12 +26,7 @@ const Hero = ({ blogs }) => {
                <SwiperSlide key={index}>
                   <div className="absolute z-0 flex h-full w-full bg-[#343A40]">
                      <div className="relative h-full w-full">
-                        <Image
-                           src={blog.img}
-                           alt=""
-                           fill="fill"
-                           className="object-cover brightness-50"
-                        />
+                        <Image src={blog.img} alt="" fill="fill" className="object-cover brightness-50" />
                      </div>
                   </div>
                   <div className="container relative mx-auto flex min-h-screen w-full px-6 pt-20 pb-[56px] md:pb-[70px] xl:px-0">
@@ -67,10 +62,7 @@ const Hero = ({ blogs }) => {
                                        ? "bg-white"
                                        : "bg-white/30",
                                  ].join(" ")}
-                                 onClick={() =>
-                                    i !== realSlide &&
-                                    swiper.current.slideTo(i + 1)
-                                 }
+                                 onClick={() => i !== realSlide && swiper.current.slideTo(i + 1)}
                               />
                            ))}
                         </div>
