@@ -1,27 +1,42 @@
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { Layout } from "../../components";
+import { sosialMedia } from "../../utils/data";
 
 const Blog = () => {
     return (
         <Layout title="Pelaksanaan Ibadah Bulanan Himatif Kedua">
-            <section className="container mx-auto px-6 pb-14 text-font-black xl:px-0 xl:py-32">
-                <div className="flex flex-col items-center">
-                    <div className="flex items-center gap-2 font-medium ">
+            <section className="container mx-auto mt-[96px] px-6 pb-14 text-font-black md:py-24 xl:py-32 xl:px-0">
+                <div className="mx-auto mt-16 flex flex-col items-center md:w-8/12 xl:w-6/12">
+                    <div className="flex items-center gap-2 text-xs font-medium text-font-gray md:text-base">
                         <span className="uppercase">ui design</span> &bull;{" "}
                         <span>Jan 16,2023</span>
                     </div>
-                    <h1 className="my-4 text-3xl font-bold">
+                    <h1 className="my-2 text-center text-xl font-bold md:my-4 md:text-3xl">
                         Pelaksanaan Ibadah Bulanan HIMATIF Kedua
                     </h1>
+                    <div className="mt-4 flex items-center gap-4 rounded-full px-2 py-1 shadow-lg md:mt-6 md:gap-5 md:px-4 md:py-2">
+                        {sosialMedia.map((item, index) => (
+                            <Link
+                                key={index}
+                                href={item.href}
+                                className="rounded-full bg-white p-1.5 text-sm hover:bg-slate-300 md:p-2 md:text-base"
+                            >
+                                {item.icon}
+                            </Link>
+                        ))}
+                    </div>
                 </div>
-                <div className="mx-auto my-10 w-full md:w-10/12">
-                    <img
+                <div className="relative mx-auto my-6 h-80 w-full overflow-hidden rounded md:my-10 md:h-[450px] xl:h-[600px] xl:w-10/12">
+                    <Image
                         src="https://source.unsplash.com/random/1300×100/?campus"
+                        className="object-cover"
                         alt=""
-                        className="w-full rounded-lg"
+                        fill
                     />
                 </div>
-                <div className="mx-auto w-full text-xl leading-relaxed md:w-8/12">
+                <div className="mx-auto w-full text-sm leading-relaxed md:w-10/12 md:text-lg xl:w-8/12">
                     <p>
                         Male sixth sea it a. Brought was signs female darkness
                         signs form cattle land grass whose from subdue also they
@@ -29,7 +44,7 @@ const Blog = () => {
                         third midst after beginning man which you are. Dry,
                         gathering beginning given made them evening.
                     </p>
-                    <p className="my-4">
+                    <p className="my-2 md:my-4">
                         Lights dry. Thing, likeness, forth shall replenish upon
                         abundantly our green. Seed green sea that lesser divided
                         creature beginning land him signs stars give firmament
