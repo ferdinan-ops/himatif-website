@@ -66,33 +66,6 @@ const Blog = () => {
                         multiply god Yielding sea do not were forth.
                     </p>
                 </div>
-//                 <section className="my-9 mx-auto border-t-2 border-dashed border-slate-300 xl:w-10/12">
-//                     <div className="py-9">
-//                         <div className="flex items-center gap-5 text-xl font-semibold">
-//                             <FaRegComments className="text-3xl" />
-//                             <span>Tinggalkan Komentar</span>
-//                         </div>
-//                         <form className="flex flex-col gap-8 pt-9">
-//                             <div className="flex items-center justify-between gap-6">
-//                                 <div className="flex flex-1 flex-col gap-3 text-font-black">
-//                                     <span className="font-medium ">Nama</span>
-//                                     <input className="rounded bg-gray-200 px-6 py-3 text-sm outline-none" />
-//                                 </div>
-//                                 <div className="flex flex-1 flex-col gap-3 text-font-black">
-//                                     <span className="font-medium ">Email</span>
-//                                     <input className="rounded bg-gray-200 px-6 py-3 text-sm outline-none" />
-//                                 </div>
-//                             </div>
-//                             <div className="flex flex-col gap-3 text-font-black">
-//                                 <span className="font-medium ">Komentar</span>
-//                                 <textarea className="min-h-[220px] rounded bg-gray-200 px-6 py-3 text-sm outline-none" />
-//                             </div>
-//                             <button className="ml-auto w-fit rounded-lg bg-primary px-5 py-2.5 text-[15px] font-medium text-white shadow-2xl shadow-primary/70 transition-all">
-//                                 Kirim Komentar
-//                             </button>
-//                         </form>
-//                     </div>
-//                 </section>
             </section>
         </Layout>
     );
