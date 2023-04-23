@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "members",
+  "info": {
+    "singularName": "member",
+    "pluralName": "members",
+    "displayName": "Anggota",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nama": {
+      "type": "string",
+      "required": true
+    },
+    "semester": {
+      "type": "string",
+      "required": true
+    },
+    "divisi": {
+      "type": "enumeration",
+      "enum": [
+        "BPH",
+        "Hubungan Masyarakat",
+        "Informasi dan Komunikasi",
+        "Olahraga dan Kesenian",
+        "Agama dan Pendidikan",
+        "Kaderisasi"
+      ],
+      "required": true
+    },
+    "jabatan": {
+      "type": "enumeration",
+      "enum": [
+        "Ketua",
+        "Sekretaris",
+        "Bendahara",
+        "Anggota"
+      ],
+      "required": true,
+      "default": "Anggota"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

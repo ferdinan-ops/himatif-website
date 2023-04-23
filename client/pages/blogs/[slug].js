@@ -3,7 +3,6 @@ import Link from "next/link";
 import React from "react";
 import { Layout } from "../../components";
 import { sosialMedia } from "../../utils/data";
-import { FaRegComments } from "react-icons/fa";
 
 const Blog = () => {
     return (

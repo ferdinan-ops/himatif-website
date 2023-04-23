@@ -4,7 +4,7 @@
   "info": {
     "singularName": "post",
     "pluralName": "posts",
-    "displayName": "post",
+    "displayName": "Post",
     "description": ""
   },
   "options": {
@@ -12,37 +12,45 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
+    "judul": {
+      "type": "string",
+      "required": true,
+      "unique": true
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "judul",
+      "required": true
     },
-    "content": {
-      "type": "richtext"
+    "konten": {
+      "type": "richtext",
+      "required": true
     },
-    "headline": {
-      "type": "text"
+    "deskripsi": {
+      "type": "text",
+      "required": true
     },
     "thumbnail": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
     "featured": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true,
+      "default": false
     },
-    "category": {
+    "kategori": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
+    },
+    "tanggal": {
+      "type": "date",
+      "required": true
     }
   }
 }

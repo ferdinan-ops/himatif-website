@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "himatif_infos",
+  "info": {
+    "singularName": "himatif-info",
+    "pluralName": "himatif-infos",
+    "displayName": "Himatif Info",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tentang": {
+      "type": "text",
+      "required": true
+    },
+    "visi": {
+      "type": "text",
+      "required": true
+    },
+    "misi": {
+      "type": "json",
+      "required": true
+    },
+    "tujuan": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::objective.objective"
+    }
+  }
+}
