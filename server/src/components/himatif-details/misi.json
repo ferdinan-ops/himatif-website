@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_himatif_details_misis",
+  "info": {
+    "displayName": "Misi"
+  },
+  "options": {},
+  "attributes": {
+    "deskripsi_misi": {
+      "type": "text",
+      "required": true,
+      "maxLength": 200
+    }
+  }
+}

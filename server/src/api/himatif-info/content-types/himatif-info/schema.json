@@ -21,13 +21,20 @@
       "required": true
     },
     "misi": {
-      "type": "json",
-      "required": true
+      "type": "component",
+      "repeatable": true,
+      "component": "himatif-details.misi",
+      "required": true,
+      "max": 5,
+      "min": 4
     },
     "tujuan": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::objective.objective"
+      "type": "component",
+      "repeatable": true,
+      "component": "himatif-details.tujuan",
+      "required": true,
+      "max": 4,
+      "min": 4
     }
   }
 }

@@ -1,0 +1,14 @@
+eslintrc.json
+prettierrc.json
+package.json
+package-lock.json
+CHANGELOG.md
+readme.md
+yarn.lock
+dist
+build
+public
+assets
+node_modules
+vercel.json
+.next
