@@ -1,6 +1,18 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&family=Montserrat:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#nprogress .bar {
+  background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, #00e0ff 12.5%, #0038ff 100%) !important;
+  height: 4px !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #2daafc, 0 0 5px #2daafc !important;
+}
 
 @layer components {
   .truncate-lines {
@@ -24,7 +36,7 @@
   }
 
   .logo {
-    @apply font-logo text-lg font-semibold tracking-wider md:text-[22px];
+    @apply text-lg font-bold tracking-wider md:text-[22px];
   }
 
   @keyframes marqueeToLeft {

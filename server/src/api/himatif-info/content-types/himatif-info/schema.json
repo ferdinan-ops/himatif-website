@@ -35,6 +35,12 @@
       "required": true,
       "max": 4,
       "min": 4
+    },
+    "kontak": {
+      "displayName": "Kontak",
+      "type": "component",
+      "repeatable": false,
+      "component": "himatif-details.kontak"
     }
   }
 }

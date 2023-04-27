@@ -1,31 +1,30 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-   content: [
-      "./pages/**/*.{js,ts,jsx,tsx}",
-      "./components/**/*.{js,ts,jsx,tsx}",
-   ],
-   theme: {
-      container: {
-         screens: {
-            sm: "640px",
-            md: "768px",
-            lg: "1024px",
-            xl: "1300px",
-         },
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}'
+  ],
+  theme: {
+    container: {
+      screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1300px'
+      }
+    },
+    extend: {
+      colors: {
+        primary: '#2DAAFC',
+        'font-black': '#29384E',
+        'font-gray': '#535961'
       },
-      extend: {
-         colors: {
-            // primary: "#001F82",
-            // primary: "#0F68B9",
-            primary: "#2DAAFC",
-            "font-black": "#29384E",
-            "font-gray": "#535961",
-         },
-         fontFamily: {
-            sans: ["Poppins", "sans-serif"],
-            logo: ["Montserrat", "sans-serif"],
-         },
-      },
-   },
-   plugins: [],
-};
+      fontFamily: {
+        sans: ['Source Sans Pro', 'sans-serif'],
+        logo: ['Source Sans Pro', 'sans-serif']
+      }
+    }
+  },
+  plugins: [require('@tailwindcss/typography')]
+}

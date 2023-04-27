@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_himatif_details_kontaks",
+  "info": {
+    "displayName": "Kontak",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "facebook_link": {
+      "type": "string",
+      "required": true
+    },
+    "instagram_link": {
+      "type": "string",
+      "required": true
+    },
+    "twitter_link": {
+      "type": "string",
+      "required": false
+    },
+    "youtube_link": {
+      "type": "string",
+      "required": true
+    },
+    "no_telp": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    }
+  }
+}
