@@ -10,13 +10,17 @@ export interface ITujuan {
 }
 
 export interface IContact {
-  id:number,
-  email:string
-  facebook_link:string
-  instagram_link:string
-  twitter_link:string
-  youtube_link:string
-  no_telp:string
+  id: number
+  attributes:{
+    kontak:{
+      email: string
+      facebook_link: string
+      instagram_link: string
+      twitter_link: string
+      youtube_link: string
+      no_telp: string
+    }
+  }
 }
 
 export interface IMisi {
@@ -29,5 +33,4 @@ export interface IHimatif {
   tentang: string
   misi: IMisi[]
   tujuan: ITujuan[]
-  kontak: IContact
 }

@@ -2,14 +2,22 @@ import { menu, sosialMedia } from '../../lib/data'
 import { IContact } from '@/types/himatif.type'
 import { BsTelephone } from 'react-icons/bs'
 import { FiMail } from 'react-icons/fi'
+import * as API from '../../lib/api'
+import * as React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-interface FooterProps {
-  contact: IContact
-}
+const Footer = () => {
+  const [contact, setContact] = React.useState<IContact>({} as IContact)
 
-const Footer: React.FC<FooterProps> = ({ contact }) => {
+  React.useEffect(() => {
+    const getContactData = async () => {
+      const { data } = await API.getContact()
+      setContact(data.data)
+    }
+    getContactData()
+  }, [])
+
   return (
     <footer className="bg-primary">
       <div className="container mx-auto px-6 py-14 md:py-[72px] xl:px-0">
@@ -49,11 +57,11 @@ const Footer: React.FC<FooterProps> = ({ contact }) => {
               <ul className="mt-4 flex flex-col gap-4 text-xs font-[300] text-white/80 md:text-base">
                 <li className="flex items-center gap-4 font-[300]">
                   <FiMail className="text-lg" />
-                  <span>{contact.email}</span>
+                  <span>{contact.attributes.kontak.email}</span>
                 </li>
                 <li className="flex items-center gap-4 font-[300]">
                   <BsTelephone className="text-lg" />
-                  <span>{contact.no_telp}</span>
+                  <span>{contact.attributes.kontak.no_telp}</span>
                 </li>
               </ul>
             </div>

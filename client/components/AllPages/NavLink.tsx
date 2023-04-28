@@ -20,7 +20,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, isTop, isHome }) => {
       : 'text-font-black/60 hover:text-font-black'
 
   return (
-    <Link href={href} className={`text-[15px] font-semibold tracking-wide ${activeClass}`}>
+    <Link href={href} className={`font-semibold tracking-wide ${activeClass}`}>
       {children}
     </Link>
   )
