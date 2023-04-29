@@ -1,12 +1,15 @@
-import { sosialMedia } from '../../lib/data'
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import Container from '../AllPages/Container'
 import Link from 'next/link'
 
+import { IContact } from '../../types/himatif.type'
+
 interface AboutProps {
   desc: string
+  contact: IContact
 }
 
-const About: React.FC<AboutProps> = ({ desc }) => {
+const About: React.FC<AboutProps> = ({ desc, contact }) => {
   return (
     <section className="bg-white pt-14 md:pt-28">
       <Container className="text-font-black">
@@ -16,17 +19,19 @@ const About: React.FC<AboutProps> = ({ desc }) => {
         <p className="mx-auto mt-[32px] text-justify leading-8 text-font-gray md:max-w-[90%] md:text-center md:text-xl md:leading-10">
           &quot; {desc} &quot;
         </p>
+
         <span className="mx-auto my-5 block h-2 w-2 rounded-full bg-slate-200 md:h-3 md:w-3" />
+
         <div className="flex items-center justify-center gap-8 text-font-black">
-          {sosialMedia.map((item, index) => (
-            <Link
-              key={index}
-              href={item.href}
-              className="rounded-full p-2 transition-all hover:bg-primary hover:text-white"
-            >
-              {item.icon}
-            </Link>
-          ))}
+          <Link href={contact.facebook_link} className="rounded-full p-2 transition-all hover:bg-primary hover:text-white">
+            <FaFacebookF className="text-base md:text-lg" />
+          </Link>
+          <Link href={contact.twitter_link} className="rounded-full p-2 transition-all hover:bg-primary hover:text-white">
+            <FaTwitter className="text-base md:text-lg" />
+          </Link>
+          <Link href={contact.instagram_link} className="rounded-full p-2 transition-all hover:bg-primary hover:text-white">
+            <FaInstagram className="text-base md:text-lg" />
+          </Link>
         </div>
       </Container>
 

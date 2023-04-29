@@ -11,5 +11,6 @@ import Tujuan from './Home/Tujuan'
 // Blog
 import Posts from './Blog/Posts'
 import Categories from './Blog/Categories'
+import Pagination from './Blog/Pagination'
 
-export { Layout, Container, Hero, About, Visi, Misi, Tujuan, Posts, Categories }
+export { Layout, Container, Hero, About, Visi, Misi, Tujuan, Posts, Categories, Pagination }

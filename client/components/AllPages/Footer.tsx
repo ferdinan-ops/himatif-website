@@ -1,26 +1,18 @@
-import { menu, sosialMedia } from '../../lib/data'
-import { IContact } from '@/types/himatif.type'
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import { BsTelephone } from 'react-icons/bs'
 import { FiMail } from 'react-icons/fi'
-import * as API from '../../lib/api'
+import { menu } from '../../lib/data'
+import Container from './Container'
 import * as React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const Footer = () => {
-  const [contact, setContact] = React.useState<IContact>({} as IContact)
+import { IContact } from '@/types/himatif.type'
 
-  React.useEffect(() => {
-    const getContactData = async () => {
-      const { data } = await API.getContact()
-      setContact(data.data)
-    }
-    getContactData()
-  }, [])
-
+const Footer: React.FC<{ contact: IContact }> = ({ contact }) => {
   return (
     <footer className="bg-primary">
-      <div className="container mx-auto px-6 py-14 md:py-[72px] xl:px-0">
+      <Container className="py-14 md:py-[72px]">
         <div className="flex flex-col justify-between xl:flex-row">
           <div className="flex max-w-sm flex-col md:max-w-md">
             <div className="flex items-center gap-4 font-bold text-white ">
@@ -34,13 +26,18 @@ const Footer = () => {
               Ilmu Komputer, Universitas Katolik Santo Thomas, Medan
             </p>
             <div className="mt-6 flex items-center gap-5 text-font-black md:mt-8 md:gap-8">
-              {sosialMedia.map((item, index) => (
-                <Link key={index} href={item.href} className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2">
-                  {item.icon}
-                </Link>
-              ))}
+              <Link href={contact.facebook_link} className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2">
+                <FaFacebookF className="text-base md:text-lg" />
+              </Link>
+              <Link href={contact.twitter_link} className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2">
+                <FaTwitter className="text-base md:text-lg" />
+              </Link>
+              <Link href={contact.instagram_link} className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2">
+                <FaInstagram className="text-base md:text-lg" />
+              </Link>
             </div>
           </div>
+
           <div className="mt-8 flex flex-col justify-between gap-8 md:mt-10 md:flex-row md:justify-start md:gap-16 xl:mt-0 xl:justify-between">
             <div className="flex min-w-[280px] flex-col text-white">
               <h3 className="border-b-2 border-white pb-3 text-sm font-semibold md:text-lg">Halaman</h3>
@@ -52,22 +49,23 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
+
             <div className="flex min-w-[280px] flex-col text-white">
               <h3 className="border-b-2 border-white pb-3 text-sm font-semibold md:text-lg">Kontak</h3>
               <ul className="mt-4 flex flex-col gap-4 text-xs font-[300] text-white/80 md:text-base">
                 <li className="flex items-center gap-4 font-[300]">
                   <FiMail className="text-lg" />
-                  <span>{contact.attributes.kontak.email}</span>
+                  <span>{contact.email}</span>
                 </li>
                 <li className="flex items-center gap-4 font-[300]">
                   <BsTelephone className="text-lg" />
-                  <span>{contact.attributes.kontak.no_telp}</span>
+                  <span>{contact.no_telp}</span>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </footer>
   )
 }

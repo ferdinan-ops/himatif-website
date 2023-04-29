@@ -1,18 +1,18 @@
 import { formatDate } from '../../lib/formatDate'
-import { IBlog } from '../../types/blog.type'
+import { IBlogData } from '../../types/blog.type'
 import { IoIosSend } from 'react-icons/io'
 import Image from 'next/image'
 import Link from 'next/link'
 
 interface PostProps {
-  post: IBlog
+  post: IBlogData
 }
 
 const Post: React.FC<PostProps> = ({ post }) => {
   const postData = post.attributes
 
   return (
-    <div className="mt-auto flex max-h-[500px] min-h-[500px] w-full flex-col gap-3 md:max-w-[336px] xl:max-w-[396px]">
+    <div className="mt-auto flex xl:max-h-[500px] xl:min-h-[500px] w-full flex-col gap-3 md:max-w-[336px] xl:max-w-[396px]">
       <div className="group relative h-44 w-full cursor-pointer overflow-hidden rounded-2xl md:h-48 xl:h-[240px]">
         <Image src={postData.thumbnail.data.attributes.url} alt="" fill className="object-cover" />
         <div className="absolute inset-0 flex cursor-default bg-slate-900/50 opacity-0 transition-all group-hover:opacity-100">

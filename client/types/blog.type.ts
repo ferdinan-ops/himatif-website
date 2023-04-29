@@ -28,27 +28,17 @@ export interface IThumbnail {
       public_id: string
       resource_type: string
     }
-    // formats: {
-    //   thumbnail: {
-    //     name: string
-    //     hash: string
-    //     ext: string
-    //     mime: string
-    //     path: string | null
-    //     width: number
-    //     height: number
-    //     size: number
-    //     url:string
-    //     providerMetadata:{
-    //       public_id: string
-    //       resource_type: string
-    //     }
-    //   }
-    // }
   }
 }
 
-export interface IBlog {
+interface Pagination {
+  page: number
+  pageSize: number
+  pageCount: number
+  total: number
+}
+
+export interface IBlogData {
   id: number
   attributes: {
     judul: string
@@ -66,5 +56,12 @@ export interface IBlog {
     thumbnail: {
       data: IThumbnail
     }
+  },
+}
+
+export interface IBlog {
+  data: IBlogData[],
+  meta: {
+    pagination: Pagination
   }
 }

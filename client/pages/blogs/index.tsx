@@ -1,36 +1,58 @@
-import { Categories, Container, Layout, Posts } from '../../components'
-import { ICategory } from '../../types/category.type'
-import { IBlog } from '../../types/blog.type'
+import { Categories, Container, Layout, Pagination, Posts } from '../../components'
+import { useState, useEffect } from 'react'
 import { BiSearch } from 'react-icons/bi'
 import * as API from '../../lib/api'
+import nProgress from 'nprogress'
 import Image from 'next/image'
+import useSWR from 'swr'
+
+import { ICategory } from '../../types/category.type'
+import { IContact } from '@/types/himatif.type'
+import { IBlog } from '../../types/blog.type'
+import axios from 'axios'
 
 export async function getServerSideProps() {
-  const { data: posts } = await API.getBlogs()
+  const { data: posts } = await API.getBlogs(1)
   const { data: categories } = await API.getCategories()
+  const { data: contact } = await API.getContact()
 
-  return { props: { posts: posts.data, categories: categories.data } }
+  return { props: { posts: posts, categories: categories.data, contact: contact.data.attributes.kontak } }
 }
 
 interface BlogsProps {
-  posts: IBlog[]
+  posts: IBlog
   categories: ICategory[]
+  contact: IContact
 }
 
-export default function Blogs({ posts, categories }: BlogsProps) {
+export default function Blogs({ posts, categories, contact }: BlogsProps) {
+  const blogImage = "https://source.unsplash.com/random?technology"
+  const API_URL = 'http://localhost:1337/api'
+  const totalPages = posts.meta.pagination.total
+
+  const [currentPage, setCurrentPage] = useState<number>(0)
+  const [blogs, setBlogs] = useState<IBlog>(posts)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      nProgress.start()
+      const page = Math.min(currentPage + 1, totalPages);
+      const result = await axios.get(`${API_URL}/posts?populate=kategori,thumbnail&sort=tanggal:desc&pagination[page]=${page}&pagination[pageSize]=6`);
+      setBlogs(result.data);
+      console.log(result.data);
+      nProgress.done()
+    };
+    fetchData();
+  }, [currentPage])
+
   return (
-    <Layout title="Blogs ~ Himpunan Mahasiswa Teknik Informatika" isHome={false}>
+    <Layout title="Blogs ~ Himpunan Mahasiswa Teknik Informatika" contact={contact} isHome={false}>
       <Container className="mt-24">
         <div className="relative flex h-36 rounded-xl md:h-40 xl:h-48">
           <h1 className="m-auto font-logo text-2xl font-bold text-white md:text-3xl xl:text-4xl">Blog</h1>
           <div className="absolute inset-0 -z-10 overflow-hidden rounded-xl">
             <div className="relative h-full w-full">
-              <Image
-                src="https://source.unsplash.com/random?technology"
-                alt="blog-image"
-                fill
-                className="object-cover brightness-[0.4]"
-              />
+              <Image src={blogImage} alt="blog-image" fill className="object-cover brightness-[0.4]" />
             </div>
           </div>
           <div className="absolute -bottom-[26px] left-1/2 w-[80%] -translate-x-1/2 overflow-hidden rounded-xl shadow-xl shadow-gray-200 md:w-[50%]">
@@ -49,7 +71,9 @@ export default function Blogs({ posts, categories }: BlogsProps) {
         <Categories categories={categories} />
       </Container>
 
-      <Posts posts={posts} />
+      <Posts posts={blogs.data} />
+
+      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages / 6} />
     </Layout>
   )
 }

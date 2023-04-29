@@ -1,6 +1,7 @@
 .next
 assets
 node_modules
+public
 styles
 .env.local
 .eslintrc.json
@@ -17,4 +18,4 @@ CHANGELOG.md
 yarn.lock
 dist
 build
-public
+server

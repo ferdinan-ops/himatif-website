@@ -1,8 +1,8 @@
-import { IBlog } from '../../types/blog.type'
+import { IBlogData } from '../../types/blog.type'
 import Post from './Post'
 
 interface PostsProps {
-  posts: IBlog[]
+  posts: IBlogData[]
 }
 
 const Posts: React.FC<PostsProps> = ({ posts }) => {
@@ -12,11 +12,6 @@ const Posts: React.FC<PostsProps> = ({ posts }) => {
         {posts.map((post) => (
           <Post key={post.id} post={post} />
         ))}
-      </div>
-      <div className="mb-20 mt-14 flex justify-center text-xs md:text-sm xl:text-base">
-        <button className="rounded-lg bg-primary px-4 py-2 font-semibold text-white shadow-2xl shadow-primary/60 md:px-5 md:py-2.5 xl:px-6 xl:py-3">
-          Load More
-        </button>
       </div>
     </section>
   )
