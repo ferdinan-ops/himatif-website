@@ -19,7 +19,7 @@ interface HomeProps {
 
 export default function Home({ blogs, himatif }: HomeProps) {
   return (
-    <Layout title="Himpunan Mahasiswa Teknik Informatika" contact={himatif.kontak} isHome>
+    <Layout title="Himpunan Mahasiswa Teknik Informatika" isHome>
       <Hero blogs={blogs} />
       <About desc={himatif.tentang} contact={himatif.kontak} />
       <Visi desc={himatif.visi} />

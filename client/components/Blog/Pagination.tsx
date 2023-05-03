@@ -8,15 +8,15 @@ interface PaginationProps {
 }
 
 const Pagination: React.FC<PaginationProps> = ({ setCurrentPage, currentPage, totalPages }) => {
-  const showNextButton = currentPage !== Math.round(totalPages) - 1
-  const showPrevButton = currentPage !== 0
+  const showNextButton = currentPage !== Math.round(totalPages)
+  const showPrevButton = currentPage !== 1
 
   return (
     <div>
       <ReactPaginate
         onPageChange={({ selected }) => {
-          console.log({ selected });
-          setCurrentPage(selected)
+          console.log({ selected: selected + 1 });
+          setCurrentPage(selected + 1)
         }}
         pageRangeDisplayed={3}
         pageCount={Math.round(totalPages)}
@@ -24,10 +24,9 @@ const Pagination: React.FC<PaginationProps> = ({ setCurrentPage, currentPage, to
         nextLabel={showNextButton ? <PaginationLabel isLeft={false} /> : null}
         breakLabel={<span className='mr-4'>...</span>}
         containerClassName="container flex mx-auto justify-center mb-20 mt-14 gap-5"
-        pageClassName='block border border-solid border-slate-200 w-10 h-10 flex items-center justify-center rounded-md cursor-pointer'
-        activeClassName='bg-primary text-white font-bold border-primary hover:bg-primary'
+        pageClassName='block w-10 h-10 flex items-center justify-center rounded-full cursor-pointer hover:bg-primary/20'
+        activeClassName='bg-primary text-white font-bold active-paginate'
       />
-
     </div>
   )
 }

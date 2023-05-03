@@ -19,6 +19,14 @@ export interface IContact {
   no_telp: string
 }
 
+export interface IContactData {
+  data: {
+    attributes: {
+      kontak: IContact
+    }
+  }
+}
+
 export interface IMisi {
   id: number
   deskripsi_misi: string

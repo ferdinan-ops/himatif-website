@@ -1,15 +1,18 @@
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import { BsTelephone } from 'react-icons/bs'
 import { FiMail } from 'react-icons/fi'
-import { menu } from '../../lib/data'
 import Container from './Container'
 import * as React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { IContact } from '@/types/himatif.type'
+import { IContactData } from '@/types/himatif.type'
+import useContact from "@/hooks/useContact"
+import { menu } from '@/lib/data'
 
-const Footer: React.FC<{ contact: IContact }> = ({ contact }) => {
+const Footer = () => {
+  const { data: contacts }: { data: IContactData } = useContact()
+
   return (
     <footer className="bg-primary">
       <Container className="py-14 md:py-[72px]">
@@ -26,13 +29,13 @@ const Footer: React.FC<{ contact: IContact }> = ({ contact }) => {
               Ilmu Komputer, Universitas Katolik Santo Thomas, Medan
             </p>
             <div className="mt-6 flex items-center gap-5 text-font-black md:mt-8 md:gap-8">
-              <Link href={contact.facebook_link} className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2">
+              <Link href={contacts ? contacts.data.attributes.kontak.facebook_link : '/'} className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2">
                 <FaFacebookF className="text-base md:text-lg" />
               </Link>
-              <Link href={contact.twitter_link} className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2">
+              <Link href={contacts ? contacts.data.attributes.kontak.twitter_link : '/'} className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2">
                 <FaTwitter className="text-base md:text-lg" />
               </Link>
-              <Link href={contact.instagram_link} className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2">
+              <Link href={contacts ? contacts.data.attributes.kontak.instagram_link : '/'} className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2">
                 <FaInstagram className="text-base md:text-lg" />
               </Link>
             </div>
@@ -55,11 +58,11 @@ const Footer: React.FC<{ contact: IContact }> = ({ contact }) => {
               <ul className="mt-4 flex flex-col gap-4 text-xs font-[300] text-white/80 md:text-base">
                 <li className="flex items-center gap-4 font-[300]">
                   <FiMail className="text-lg" />
-                  <span>{contact.email}</span>
+                  <span>{contacts && contacts.data.attributes.kontak.email}</span>
                 </li>
                 <li className="flex items-center gap-4 font-[300]">
                   <BsTelephone className="text-lg" />
-                  <span>{contact.no_telp}</span>
+                  <span>{contacts && contacts.data.attributes.kontak.no_telp}</span>
                 </li>
               </ul>
             </div>

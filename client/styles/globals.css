@@ -14,6 +14,10 @@
   box-shadow: 0 0 10px #2daafc, 0 0 5px #2daafc !important;
 }
 
+.active-paginate:hover {
+  background-color: #0597f7 !important;
+}
+
 @layer components {
   .truncate-lines {
     display: -webkit-box;
@@ -21,6 +25,16 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 
   .radial-gradient {

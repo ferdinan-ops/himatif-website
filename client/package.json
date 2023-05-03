@@ -17,6 +17,7 @@
     "react-icons": "^4.8.0",
     "react-markdown": "^8.0.7",
     "react-paginate": "^8.2.0",
+    "react-share": "^4.4.1",
     "swiper": "^8.4.6",
     "swr": "^2.1.5"
   },

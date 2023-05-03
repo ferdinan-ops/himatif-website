@@ -12,5 +12,7 @@ import Tujuan from './Home/Tujuan'
 import Posts from './Blog/Posts'
 import Categories from './Blog/Categories'
 import Pagination from './Blog/Pagination'
+import BlogSearch from './Blog/BlogSearch'
+import NoPost from './Blog/NoPost'
 
-export { Layout, Container, Hero, About, Visi, Misi, Tujuan, Posts, Categories, Pagination }
+export { Layout, Container, Hero, About, Visi, Misi, Tujuan, Posts, Categories, Pagination, BlogSearch, NoPost }

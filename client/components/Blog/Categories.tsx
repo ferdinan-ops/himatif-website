@@ -1,26 +1,42 @@
 import { ICategory } from '../../types/category.type'
 import Link from 'next/link'
+import Container from '../AllPages/Container'
+import useCategories from '@/hooks/useCategories'
+import { useRouter } from 'next/router'
 
 interface CategoriesProps {
-  categories: ICategory[]
+  slug?: string
 }
 
-const Categories: React.FC<CategoriesProps> = ({ categories }) => {
+const Categories: React.FC<CategoriesProps> = ({ slug }) => {
+  const router = useRouter()
+  const { data } = useCategories()
+  const btnStyle = 'min-w-max cursor-pointer rounded-full py-2 text-xs md:text-sm xl:text-base'
+
+  const handleCategory = (categorySlug: string) => {
+    router.push({
+      pathname: '/blogs',
+      query: { ...router.query, category: categorySlug }
+    })
+  }
+
   return (
-    <ul className="no-scrollbar mx-auto flex items-center gap-3 overflow-y-auto font-semibold text-font-black md:gap-5 xl:gap-6">
-      <li className="min-w-max cursor-pointer rounded-full bg-primary px-6 py-2 text-xs text-white md:text-sm xl:text-base">
-        Semua
-      </li>
-      {categories.map((category) => (
-        <Link
-          key={category.id}
-          href={`/blogs/category/${category.attributes.slug}`}
-          className="min-w-max cursor-pointer rounded-full px-4 py-2 text-xs hover:text-primary md:text-sm xl:text-base"
-        >
-          {category.attributes.nama}
+    <Container className="mt-16 md:mt-20 xl:mt-24">
+      <ul className="no-scrollbar mx-auto flex items-center gap-3 overflow-y-auto font-semibold text-font-black md:gap-5 xl:gap-6">
+        <Link href='/blogs' className={`${btnStyle} ${!slug ? 'bg-primary text-white px-6 hover:bg-primary-dark' : 'px-4 hover:text-primary'}`}>
+          Semua
         </Link>
-      ))}
-    </ul>
+        {data && data.data.map((category: ICategory) => (
+          <div
+            key={category.id}
+            onClick={() => handleCategory(category.attributes.slug)}
+            className={`${btnStyle} ${slug === category.attributes.slug ? 'bg-primary text-white px-6 hover:bg-primary-dark' : 'px-4 hover:text-primary'}`}
+          >
+            {category.attributes.nama}
+          </div>
+        ))}
+      </ul>
+    </Container>
   )
 }
 

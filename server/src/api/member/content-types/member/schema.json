@@ -16,7 +16,7 @@
       "type": "string",
       "required": true
     },
-    "semester": {
+    "npm": {
       "type": "string",
       "required": true
     },
@@ -28,7 +28,9 @@
         "Informasi dan Komunikasi",
         "Olahraga dan Kesenian",
         "Agama dan Pendidikan",
-        "Kaderisasi"
+        "Kaderisasi",
+        "Sosial dan lingkungan  Hidup",
+        "Peranan dan Pemberdayaan Perempuan"
       ],
       "required": true
     },
@@ -50,6 +52,11 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "tahun_bergabung": {
+      "type": "string",
+      "required": true,
+      "default": "2022"
     }
   }
 }

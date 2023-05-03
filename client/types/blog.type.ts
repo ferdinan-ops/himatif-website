@@ -38,6 +38,12 @@ interface Pagination {
   total: number
 }
 
+export interface IBlogMeta {
+  description?: string
+  title?: string
+  image?: string
+}
+
 export interface IBlogData {
   id: number
   attributes: {
