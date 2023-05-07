@@ -16,14 +16,16 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: '#2DAAFC',
-        'primary-dark': '#0597f7',
+        primary: '#085186',
+        // 'primary-dark': '#0597f7',
+        'primary-dark': '#023d69',
         'font-black': '#29384E',
         'font-gray': '#535961'
       },
       fontFamily: {
         sans: ['Source Sans Pro', 'sans-serif'],
-        logo: ['Source Sans Pro', 'sans-serif']
+        logo: ['Source Sans Pro', 'sans-serif'],
+        title: ['Montserrat', 'sans-serif']
       }
     }
   },

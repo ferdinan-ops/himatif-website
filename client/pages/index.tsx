@@ -1,16 +1,7 @@
 import { Layout, Hero, Visi, Misi, Tujuan, About } from '../components'
 import { IHimatif } from '../types/himatif.type'
 import { IBlog } from '../types/blog.type'
-import * as API from '../lib/api'
-
-export const getServerSideProps = async () => {
-  const { data: blogs } = await API.getBlogsFeatures()
-  const { data: himatif } = await API.getHimatifInfos()
-
-  return {
-    props: { blogs: blogs.data, himatif: himatif.data.attributes }
-  }
-}
+import { getBlogsFeatures, getHimatifInfos } from '../lib/api'
 
 interface HomeProps {
   blogs: IBlog[]
@@ -27,4 +18,13 @@ export default function Home({ blogs, himatif }: HomeProps) {
       <Tujuan tujuanLists={himatif.tujuan} />
     </Layout>
   )
+}
+
+export const getServerSideProps = async () => {
+  const { data: blogs } = await getBlogsFeatures()
+  const { data: himatif } = await getHimatifInfos()
+
+  return {
+    props: { blogs: blogs.data, himatif: himatif.data.attributes }
+  }
 }

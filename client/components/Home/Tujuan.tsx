@@ -33,12 +33,12 @@ const Tujuan: React.FC<TujuanProps> = ({ tujuanLists }) => {
         </div>
       </Container>
 
-      <div className="radial-gradient relative h-20 overflow-hidden text-[#060919] xl:h-28">
+      {/* <div className="radial-gradient relative h-20 overflow-hidden text-[#060919] xl:h-28">
         <span className="animation-1 absolute w-max text-3xl font-bold xl:text-5xl">
           HIMPUNAN MAHASISWA TEKNIK INFORMATIKA <span className="text-red-500">♥️</span> HIMPUNAN MAHASISWA TEKNIK
           INFORMATIKA
         </span>
-      </div>
+      </div> */}
     </section>
   )
 }

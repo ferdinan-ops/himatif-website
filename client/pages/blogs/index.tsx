@@ -37,7 +37,7 @@ export default function Blogs({ posts, category, search }: BlogsProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  let posts;
+  let posts
   const { search, category } = context.query
 
   if (search && category) {

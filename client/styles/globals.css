@@ -18,6 +18,16 @@
   background-color: #0597f7 !important;
 }
 
+.smooth-shadow {
+  box-shadow: 0px 10px 30px 0px rgba(41, 56, 78, 0.17);
+  -webkit-box-shadow: 0px 10px 30px 0px rgba(41, 56, 78, 0.17);
+  -moz-box-shadow: 0px 10px 30px 0px rgba(41, 56, 78, 0.17);
+}
+
+.profile-gradient {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 55.37%, #292929 100%);
+}
+
 @layer components {
   .truncate-lines {
     display: -webkit-box;
@@ -33,12 +43,15 @@
   }
 
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 
   .radial-gradient {
-    background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, #00e0ff 12.5%, #0038ff 100%);
+    /* background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, #00e0ff 12.5%, #0038ff 100%); */
+    background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, #0394fb 12.5%, #085186 100%);
   }
 
   .header {
@@ -57,6 +70,7 @@
     0% {
       transform: translate(100%, -50%);
     }
+
     100% {
       transform: translate(-100%, -50%);
     }

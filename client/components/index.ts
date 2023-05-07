@@ -15,4 +15,25 @@ import Pagination from './Blog/Pagination'
 import BlogSearch from './Blog/BlogSearch'
 import NoPost from './Blog/NoPost'
 
-export { Layout, Container, Hero, About, Visi, Misi, Tujuan, Posts, Categories, Pagination, BlogSearch, NoPost }
+// Structure
+import Dropdown from './Structure/Dropdown'
+import Card from './Structure/Card'
+import Divisi from './Structure/Divisi'
+
+export {
+  Layout,
+  Container,
+  Hero,
+  About,
+  Visi,
+  Misi,
+  Tujuan,
+  Posts,
+  Categories,
+  Pagination,
+  BlogSearch,
+  NoPost,
+  Dropdown,
+  Card,
+  Divisi
+}

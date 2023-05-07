@@ -38,13 +38,13 @@ const About: React.FC<AboutProps> = ({ desc, contact }) => {
       <div className="relative mt-20 h-64 overflow-x-hidden">
         <div className="radial-gradient absolute inset-x-0 top-0 h-20 w-[105%] origin-top-left rotate-6 overflow-hidden text-[#060919] md:rotate-[4deg] xl:h-28 xl:rotate-3">
           <span className="absolute top-1/2 w-max -translate-y-1/2 text-3xl font-bold xl:text-5xl">
-            HIMPUNAN MAHASISWA TEKNIK INFORMATIKA <span className="text-red-500">♥️</span> HIMPUNAN MAHASISWA TEKNIK
+            HIMPUNAN MAHASISWA TEKNIK INFORMATIKA <span>⚡</span> HIMPUNAN MAHASISWA TEKNIK
             INFORMATIKA
           </span>
         </div>
         <div className="radial-gradient absolute -left-3 top-0 z-10 h-20 w-[105%] origin-top-right -rotate-6 overflow-hidden text-[#060919] shadow-2xl md:-rotate-[4deg] xl:h-28 xl:-rotate-3">
           <span className="absolute top-1/2 w-max -translate-y-1/2 text-3xl font-bold xl:text-5xl">
-            HIMPUNAN MAHASISWA TEKNIK INFORMATIKA <span className="text-red-500">♥️</span> HIMPUNAN MAHASISWA TEKNIK
+            HIMPUNAN MAHASISWA TEKNIK INFORMATIKA <span>⚡</span> HIMPUNAN MAHASISWA TEKNIK
             INFORMATIKA
           </span>
         </div>

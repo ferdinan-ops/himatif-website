@@ -4,13 +4,13 @@ import { Divisi, Container, Dropdown, Layout } from '../../components'
 import { IMember } from '../../types/member.type'
 import { getMemberDivisi, getYears } from '../../lib/api'
 
-interface StructureProps {
+interface StructureDetailProps {
   thisYear: string
   years: IMember[]
   divisi: IMember[]
 }
 
-export default function Structure({ years, divisi, thisYear }: StructureProps) {
+export default function StructureDetail({ years, divisi, thisYear }: StructureDetailProps) {
   return (
     <Layout title="Blogs ~ Himpunan Mahasiswa Teknik Informatika" isHome={false}>
       <Container className="my-[96px] py-5 pb-14 font-sans text-font-black xl:py-20">
@@ -20,7 +20,7 @@ export default function Structure({ years, divisi, thisYear }: StructureProps) {
           </h1>
           <Dropdown years={years} />
         </div>
-        <img src="./structure-3.png" alt="struktur organisasi HIMATIF" className='w-full xl:w-10/12 mx-auto rounded-lg' />
+        <img src="/structure-3.png" alt="struktur organisasi HIMATIF" className='w-full xl:w-10/12 mx-auto rounded-lg' />
         <div className='flex flex-col gap-20 xl:gap-28 md:mt-20 mt-14'>
           {divisi.map((item) => (
             <Divisi year={thisYear} title={item.attributes.divisi} />
@@ -31,15 +31,9 @@ export default function Structure({ years, divisi, thisYear }: StructureProps) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { slug } = context.query
   const { data: years } = await getYears()
-  let tahunTerbesar = 0;
-  years.data.forEach((item: IMember) => {
-    const tahun = parseInt(item.attributes.tahun_bergabung)
-    if (tahun > tahunTerbesar) {
-      tahunTerbesar = tahun
-    }
-  })
 
   const tahun: IMember[] = [];
   years.data.forEach((item: IMember) => {
@@ -48,7 +42,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
     }
   });
 
-  const { data } = await getMemberDivisi(tahunTerbesar.toString())
+  const { data } = await getMemberDivisi(slug as string)
+  if (data.data.length === 0) return { notFound: true }
+
   const divisi: IMember[] = [];
   data.data.forEach((item: IMember) => {
     if (!divisi.find((uniqueItem) => uniqueItem.attributes.divisi === item.attributes.divisi)) {
@@ -59,7 +55,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       years: tahun,
-      thisYear: tahunTerbesar.toString(),
+      thisYear: slug?.toString(),
       divisi,
     }
   }

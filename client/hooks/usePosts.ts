@@ -1,10 +1,10 @@
-import fetcher from '@/lib/fetcher';
+import fetcher from '@/lib/fetcher'
 import { IBlog } from '@/types/blog.type'
 import useSWR from 'swr'
 
 const usePosts = (posts: IBlog, page: number, category?: string, keyword?: string) => {
   const POST_URI = '/posts?populate=kategori,thumbnail&sort=tanggal:desc&pagination[pageSize]=6'
-  let query;
+  let query
   if (category && keyword) {
     query = `filters[judul][$contains]=${keyword}&filters[kategori][slug][$eq]=${category}`
   } else if (category) {
