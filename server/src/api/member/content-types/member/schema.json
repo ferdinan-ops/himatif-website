@@ -20,20 +20,6 @@
       "type": "string",
       "required": true
     },
-    "divisi": {
-      "type": "enumeration",
-      "enum": [
-        "BPH",
-        "Hubungan Masyarakat",
-        "Informasi dan Komunikasi",
-        "Olahraga dan Kesenian",
-        "Agama dan Pendidikan",
-        "Kaderisasi",
-        "Sosial dan lingkungan  Hidup",
-        "Peranan dan Pemberdayaan Perempuan"
-      ],
-      "required": true
-    },
     "jabatan": {
       "type": "enumeration",
       "enum": [
@@ -53,10 +39,15 @@
         "images"
       ]
     },
+    "divisi": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::divisi.divisi"
+    },
     "tahun_bergabung": {
-      "type": "string",
-      "required": true,
-      "default": "2022"
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::year.year"
     }
   }
 }

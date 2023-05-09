@@ -1,5 +1,5 @@
-import { formatDate } from '../../lib/formatDate'
-import { IBlogData } from '../../types/blog.type'
+import { formatDate } from '@/lib/formatDate'
+import { IBlogData } from '@/types/blog.type'
 import { IoIosSend } from 'react-icons/io'
 import Image from 'next/image'
 import Link from 'next/link'

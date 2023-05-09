@@ -2,7 +2,7 @@ import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import Container from '../AllPages/Container'
 import Link from 'next/link'
 
-import { IContact } from '../../types/himatif.type'
+import { IContact } from '@/types/himatif.type'
 
 interface AboutProps {
   desc: string

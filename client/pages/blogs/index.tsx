@@ -20,11 +20,7 @@ export default function Blogs({ posts, category, search }: BlogsProps) {
     <Layout title="Blogs ~ Himpunan Mahasiswa Teknik Informatika" isHome={false}>
       <BlogSearch />
       <Categories slug={category} />
-      {blogs.data.length === 0 ? (
-        <NoPost search={search} category={category} />
-      ) : (
-        <Posts posts={blogs.data} />
-      )}
+      {blogs.data.length === 0 ? <NoPost /> : <Posts posts={blogs.data} />}
       {blogs.meta.pagination.total > 6 && (
         <Pagination
           currentPage={currentPage}

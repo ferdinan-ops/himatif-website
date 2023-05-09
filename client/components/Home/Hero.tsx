@@ -1,23 +1,23 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import * as React from 'react'
-import { formatDateHero } from '../../lib/formatDate'
+import { useRef, useState } from 'react'
 import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectFade, type Swiper as SwiperRef } from 'swiper'
 
-import { IBlog } from '../../types/blog.type'
+import { IBlogData } from '@/types/blog.type'
+import { formatDateHero } from '@/lib/formatDate'
+import Container from '../AllPages/Container'
 
 import 'swiper/css'
 import 'swiper/css/effect-fade'
-import Container from '../AllPages/Container'
 
 interface HeroProps {
-  blogs: IBlog[]
+  blogs: IBlogData[]
 }
 
 const Hero: React.FC<HeroProps> = ({ blogs }) => {
-  const [realSlide, setRealSlide] = React.useState<number>(0)
-  const swiperRef = React.useRef<SwiperRef>()
+  const [realSlide, setRealSlide] = useState<number>(0)
+  const swiperRef = useRef<SwiperRef>()
 
   const handleSlideTo = (index: number) => {
     if (swiperRef && swiperRef.current && swiperRef.current.slideTo) {

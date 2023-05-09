@@ -1,8 +1,9 @@
-import { ICategory } from '../../types/category.type'
 import Link from 'next/link'
-import Container from '../AllPages/Container'
-import useCategories from '@/hooks/useCategories'
 import { useRouter } from 'next/router'
+
+import Container from '../AllPages/Container'
+import { ICategory } from '@/types/category.type'
+import useCategories from '@/hooks/useCategories'
 
 interface CategoriesProps {
   slug?: string

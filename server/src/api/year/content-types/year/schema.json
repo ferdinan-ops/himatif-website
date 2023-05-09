@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "years",
+  "info": {
+    "singularName": "year",
+    "pluralName": "years",
+    "displayName": "Tahun Angkatan",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tahun_angkatan": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

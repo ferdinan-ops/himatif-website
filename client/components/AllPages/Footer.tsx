@@ -2,7 +2,6 @@ import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import { BsTelephone } from 'react-icons/bs'
 import { FiMail } from 'react-icons/fi'
 import Container from './Container'
-import * as React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 

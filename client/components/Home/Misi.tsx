@@ -1,6 +1,7 @@
-import { IMisi } from '../../types/himatif.type'
+import { IMisi } from '@/types/himatif.type'
 import Container from '../AllPages/Container'
-import { MisiImg } from '../../assets'
+import { MisiImg } from '@/assets'
+
 import Image from 'next/image'
 
 interface MisiProps {

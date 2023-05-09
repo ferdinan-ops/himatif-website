@@ -1,9 +1,10 @@
 import Link from 'next/link'
-import * as React from 'react'
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
+import { HiBars3, HiXMark } from 'react-icons/hi2'
+
 import NavLink from './NavLink'
 import { menu } from '../../lib/data'
-import { HiBars3, HiXMark } from 'react-icons/hi2'
 
 const Logo: React.FC<{ isTop: boolean; home: string }> = ({ isTop, home }) => {
   return (
@@ -17,12 +18,12 @@ const Logo: React.FC<{ isTop: boolean; home: string }> = ({ isTop, home }) => {
 }
 
 const Header: React.FC<{ isHome: boolean }> = ({ isHome }) => {
-  const [isShow, setIsShow] = React.useState<boolean>(false)
-  const [isTop, setIsTop] = React.useState<boolean>(true)
+  const [isShow, setIsShow] = useState<boolean>(false)
+  const [isTop, setIsTop] = useState<boolean>(true)
 
   const scrollHandler = () => setIsTop(window.pageYOffset <= 20)
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener('scroll', scrollHandler)
     return () => window.removeEventListener('scroll', scrollHandler)
   }, [])

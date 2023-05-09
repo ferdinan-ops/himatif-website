@@ -10,17 +10,21 @@ const Card: React.FC<CardProps> = ({ member }) => {
   const { attributes } = member
   return (
     <article>
-      <div className='relative w-[216px] h-[242px] xl:w-[350px] xl:h-[340px] rounded-2xl overflow-hidden font-sans tracking-wide focus:cursor-grab'>
+      <div className="relative h-[242px] w-[216px] overflow-hidden rounded-2xl font-sans tracking-wide focus:cursor-grab xl:h-[340px] xl:w-[350px]">
         <Image
-          src={attributes.photo?.data?.attributes.url ? attributes.photo?.data?.attributes.url : 'https://source.unsplash.com/random?profile'}
+          src={
+            attributes.photo?.data?.attributes.url
+              ? attributes.photo?.data?.attributes.url
+              : `https://source.unsplash.com/random?${member.attributes.divisi}`
+          }
           alt={attributes.nama}
-          className='object-cover'
+          className="object-cover"
           fill
         />
-        <div className='absolute inset-0 profile-gradient flex flex-col p-6'>
-          <div className='flex flex-col mt-auto text-white gap-1'>
-            <span className='text-base md:text-lg font-bold'>{attributes.nama}</span>
-            <span className='text-xs md:text-sm font-semibold'>{attributes.jabatan}</span>
+        <div className="profile-gradient absolute inset-x-0 bottom-0 flex flex-col p-6">
+          <div className="mt-auto flex flex-col gap-1 text-white">
+            <span className="text-base font-bold md:text-lg">{attributes.nama}</span>
+            <span className="text-xs font-semibold md:text-sm">{attributes.jabatan}</span>
           </div>
         </div>
       </div>

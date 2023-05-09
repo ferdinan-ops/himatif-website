@@ -1,8 +1,8 @@
 import { GetServerSideProps } from 'next/types'
 
-import { Divisi, Container, Dropdown, Layout } from '../../components'
-import { IMember } from '../../types/member.type'
-import { getMemberDivisi, getYears } from '../../lib/api'
+import { Divisi, Container, Dropdown, Layout } from '@/components'
+import { getMemberDivisi, getYears } from '@/lib/api'
+import { IMember } from '@/types/member.type'
 
 interface StructureDetailProps {
   thisYear: string
@@ -20,8 +20,12 @@ export default function StructureDetail({ years, divisi, thisYear }: StructureDe
           </h1>
           <Dropdown years={years} />
         </div>
-        <img src="/structure-3.png" alt="struktur organisasi HIMATIF" className='w-full xl:w-10/12 mx-auto rounded-lg' />
-        <div className='flex flex-col gap-20 xl:gap-28 md:mt-20 mt-14'>
+        <img
+          src="/structure-3.png"
+          alt="struktur organisasi HIMATIF"
+          className="mx-auto w-full rounded-lg xl:w-10/12"
+        />
+        <div className="mt-14 flex flex-col gap-20 md:mt-20 xl:gap-28">
           {divisi.map((item) => (
             <Divisi year={thisYear} title={item.attributes.divisi} />
           ))}
@@ -35,28 +39,28 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { slug } = context.query
   const { data: years } = await getYears()
 
-  const tahun: IMember[] = [];
+  const tahun: IMember[] = []
   years.data.forEach((item: IMember) => {
     if (!tahun.find((uniqueItem) => uniqueItem.attributes.tahun_bergabung === item.attributes.tahun_bergabung)) {
-      tahun.push(item);
+      tahun.push(item)
     }
-  });
+  })
 
   const { data } = await getMemberDivisi(slug as string)
   if (data.data.length === 0) return { notFound: true }
 
-  const divisi: IMember[] = [];
+  const divisi: IMember[] = []
   data.data.forEach((item: IMember) => {
     if (!divisi.find((uniqueItem) => uniqueItem.attributes.divisi === item.attributes.divisi)) {
-      divisi.push(item);
+      divisi.push(item)
     }
-  });
+  })
 
   return {
     props: {
       years: tahun,
       thisYear: slug?.toString(),
-      divisi,
+      divisi
     }
   }
 }

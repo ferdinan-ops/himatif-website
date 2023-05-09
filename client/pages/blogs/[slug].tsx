@@ -6,8 +6,8 @@ import Image from 'next/image'
 import { FaFacebookF, FaTwitter } from 'react-icons/fa'
 import { RiWhatsappFill } from 'react-icons/ri'
 
-import { Container, Layout } from '@/components'
 import { IBlogData, IBlogMeta } from '@/types/blog.type'
+import { Container, Layout } from '@/components'
 import { formatDate } from '@/lib/formatDate'
 import { getBlog } from '@/lib/api'
 
@@ -38,19 +38,19 @@ export default function Blog({ blog }: BlogProps) {
 
           <div className="mt-4 flex items-center gap-4 rounded-full px-2 py-1 shadow-lg md:mt-6 md:gap-5 md:px-4 md:py-2">
             <div className="rounded-full bg-white p-1.5 text-sm hover:bg-slate-300 md:p-2 md:text-base">
-              <FacebookShareButton url={BLOG_URI} className='flex'>
+              <FacebookShareButton url={BLOG_URI} className="flex">
                 <FaFacebookF className="text-base md:text-lg" />
               </FacebookShareButton>
             </div>
 
             <div className="rounded-full bg-white p-1.5 text-sm hover:bg-slate-300 md:p-2 md:text-base">
-              <TwitterShareButton url={BLOG_URI} className='flex'>
+              <TwitterShareButton url={BLOG_URI} className="flex">
                 <FaTwitter className="text-base md:text-lg" />
               </TwitterShareButton>
             </div>
 
             <div className="rounded-full bg-white p-1.5 text-sm hover:bg-slate-300 md:p-2 md:text-base">
-              <WhatsappShareButton url={BLOG_URI} className='flex'>
+              <WhatsappShareButton url={BLOG_URI} className="flex">
                 <RiWhatsappFill className="text-base md:text-xl" />
               </WhatsappShareButton>
             </div>
@@ -65,18 +65,19 @@ export default function Blog({ blog }: BlogProps) {
           <ReactMarkdown
             className="
             prose 
-            max-w-none 
-            prose-sm lg:prose-xl 
-            prose-headings:text-primary 
-            prose-headings:pt-5 lg:prose-headings:pt-10 
-            prose-h1:text-2xl lg:prose-h1:text-[28px] 
-            prose-h2:text-xl lg:prose-h2:text-[22px]
-            prose-h3:text-[19px] lg:prose-h3:text-xl
-            prose-h4:text-lg lg:prose-h4:text-lg
-            prose-h5:text-[17px] lg:prose-h5:text-base
-            prose-h6:text-xs lg:prose-h6:text-sm
-            prose-a:text-primary
-            prose-img:rounded-[20px]">
+            prose-sm 
+            max-w-none lg:prose-xl 
+            prose-headings:pt-5 
+            prose-headings:text-primary prose-h1:text-2xl 
+            prose-h2:text-xl prose-h3:text-[19px] 
+            prose-h4:text-lg prose-h5:text-[17px]
+            prose-h6:text-xs prose-a:text-primary
+            prose-img:rounded-[20px] lg:prose-headings:pt-10
+            lg:prose-h1:text-[28px] lg:prose-h2:text-[22px]
+            lg:prose-h3:text-xl lg:prose-h4:text-lg
+            lg:prose-h5:text-base
+            lg:prose-h6:text-sm"
+          >
             {attributes.konten}
           </ReactMarkdown>
         </div>

@@ -1,7 +1,6 @@
 import Container from '../AllPages/Container'
-import { VisiImg } from '../../assets'
+import { VisiImg } from '@/assets'
 import Image from 'next/image'
-import * as React from 'react'
 
 interface VisiProps {
   desc: string

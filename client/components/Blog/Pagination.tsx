@@ -14,17 +14,14 @@ const Pagination: React.FC<PaginationProps> = ({ setCurrentPage, currentPage, to
   return (
     <div>
       <ReactPaginate
-        onPageChange={({ selected }) => {
-          console.log({ selected: selected + 1 });
-          setCurrentPage(selected + 1)
-        }}
+        onPageChange={({ selected }) => setCurrentPage(selected + 1)}
         pageRangeDisplayed={3}
         pageCount={Math.round(totalPages)}
         previousLabel={showPrevButton ? <PaginationLabel isLeft /> : null}
         nextLabel={showNextButton ? <PaginationLabel isLeft={false} /> : null}
         breakLabel={<span className='mr-4'>...</span>}
-        containerClassName="container flex mx-auto justify-center mb-20 mt-14 gap-5"
-        pageClassName='block w-10 h-10 flex items-center justify-center rounded-full cursor-pointer hover:bg-primary/20'
+        containerClassName="container flex mx-auto justify-center mb-20 gap-3 md:gap-5 md:text-base text-sm"
+        pageClassName='block w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-lg cursor-pointer hover:bg-primary/20'
         activeClassName='bg-primary text-white font-bold active-paginate'
       />
     </div>

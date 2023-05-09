@@ -1,21 +1,37 @@
 import Container from "../AllPages/Container"
 
-interface NoPostProps {
-  search?: string
-  category?: string
-}
+import Lottie from 'react-lottie'
+import animationData from '../../assets/lotties/not-found.json'
 
-const NoPost: React.FC<NoPostProps> = ({ search, category }) => {
+const NoPost = () => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
+
   return (
-    <Container className="min-h-[400px] max-w-[600px] flex flex-col">
-      <div className='flex m-auto flex-col items-center gap-5'>
-        <p className='text-slate-400 text-xl md:text-3xl text-center md:leading-[50px]'>
-          Blog dengan
-          {category && <> kategori <span className='text-primary font-bold italic'>{category}</span></>}{' '}
-          {category && search && 'dan'} {search && <>keyword <span className='italic text-primary font-bold'>{search}</span></>}{' '}
-          tidak dapat ditemukan
-        </p>
-        <p className='text-2xl md:text-4xl'>😭😭😭</p>
+    <Container className="max-w-[600px] flex flex-col pt-2 pb-12">
+      <div className='flex m-auto flex-col items-center'>
+        <div className="w-[150px] h-[150px] md:w-[250px] md:h-[250px]">
+          <Lottie
+            options={defaultOptions}
+            style={{ height: '100%', width: '100%' }}
+          />
+        </div>
+
+        <div className="flex flex-col gap-1">
+          <h2 className="text-[15px] md:text-lg font-bold text-font-black text-center">
+            Tidak ada blog yang ditemukan
+          </h2>
+          <p className="text-xs text-center md:text-sm text-font-gray">
+            Kami tidak dapat menemukan blog apa pun berdasarkan pencarian Anda
+          </p>
+        </div>
+
       </div>
     </Container>
   )

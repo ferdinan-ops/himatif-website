@@ -7,32 +7,65 @@ export const axiosPublic = axios.create({
 const POST_URI = '/posts?populate=kategori,thumbnail&sort=tanggal:desc'
 const blogPagination = 'pagination[page]=1&pagination[pageSize]=6'
 
-export const getCategories = () => axiosPublic.get('/categories?sort=nama:asc')
-export const getContact = () => axiosPublic.get('/himatif-infos/1?populate[0]=kontak&fields[1]=id')
+/* CATEGORIES */
+export const getCategories = () => {
+  const query = '/categories?sort=nama:asc'
+  return axiosPublic.get(query)
+}
 
-export const getBlogsFeatures = () => axiosPublic.get(`${POST_URI}&filters[featured][$eq]=true&pagination[pageSize]=3`)
+/* CONTACT */
+export const getContact = () => {
+  const query = '/himatif-infos/1?populate[0]=kontak&fields[1]=id'
+  return axiosPublic.get(query)
+}
 
-export const getHimatifInfos = () =>
-  axiosPublic.get('/himatif-infos/1?populate[0]=misi&populate[1]=kontak&populate[2]=tujuan.gambar')
+/* HIMATIF */
+export const getBlogsFeatures = () => {
+  const query = `${POST_URI}&filters[featured][$eq]=true&pagination[pageSize]=3`
+  return axiosPublic.get(query)
+}
 
-export const getBlogs = (page: number) => axiosPublic.get(`${POST_URI}&pagination[page]=${page}&pagination[pageSize]=6`)
+export const getHimatifInfos = () => {
+  const query = '/himatif-infos/1?populate[0]=misi&populate[1]=kontak&populate[2]=tujuan.gambar'
+  return axiosPublic.get(query)
+}
 
-export const getBlog = (slug: string) =>
-  axiosPublic.get(`/posts?filters[slug][$eq]=${slug}&populate=kategori,thumbnail`)
+/* BLOGS */
+export const getBlogs = (page: number) => {
+  const query = `${POST_URI}&pagination[page]=${page}&pagination[pageSize]=6`
+  return axiosPublic.get(query)
+}
 
-export const getBlogByCategories = (category: string) =>
-  axiosPublic.get(`${POST_URI}&filters[kategori][slug][$eq]=${category}&${blogPagination}`)
+export const getBlog = (slug: string) => {
+  const query = `/posts?filters[slug][$eq]=${slug}&populate=kategori,thumbnail`
+  return axiosPublic.get(query)
+}
 
-export const getBlogByKeyword = (keyword: string) =>
-  axiosPublic.get(`${POST_URI}&filters[judul][$contains]=${keyword}&${blogPagination}`)
+export const getBlogByCategories = (category: string) => {
+  const query = `${POST_URI}&filters[kategori][slug][$eq]=${category}&${blogPagination}`
+  return axiosPublic.get(query)
+}
 
-export const getBlogByCategoryAndKeyword = (category: string, keyword: string) =>
-  axiosPublic.get(
-    `${POST_URI}&filters[judul][$contains]=${keyword}&filters[kategori][slug][$eq]=${category}&${blogPagination}`
-  )
+export const getBlogByKeyword = (keyword: string) => {
+  const query = `${POST_URI}&filters[judul][$contains]=${keyword}&${blogPagination}`
+  return axiosPublic.get(query)
+}
 
-export const getMembers = (year: string) =>
-  axiosPublic.get(`/members?populate=foto&filters[tahun_bergabung][$eq]=${year}`)
+export const getBlogByCategoryAndKeyword = (category: string, keyword: string) => {
+  const query = `${POST_URI}&filters[judul][$contains]=${keyword}&filters[kategori][slug][$eq]=${category}&${blogPagination}`
+  return axiosPublic.get(query)
+}
 
-export const getYears = () => axiosPublic.get('/members?fields=tahun_bergabung')
-export const getMemberDivisi = (year:string) => axiosPublic.get(`/members?filters[tahun_bergabung][$eq]=${year}&fields=divisi`)
+/* MEMBERS */
+export const getMembers = (year: string) => {
+  const query = `/members?populate=photo,divisi&filters[tahun_bergabung][tahun_angkatan][$eq]=${year}`
+  return axiosPublic.get(query)
+}
+
+export const getDivisi = () => {
+  return axiosPublic.get('/divisions?sort[0]=createdAt:desc')
+}
+
+export const getYears = () => {
+  return axiosPublic.get('/years')
+}

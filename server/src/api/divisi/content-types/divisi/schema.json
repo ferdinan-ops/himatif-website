@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "divisions",
+  "info": {
+    "singularName": "divisi",
+    "pluralName": "divisions",
+    "displayName": "Divisi",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nama_divisi": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nama_divisi"
+    }
+  }
+}

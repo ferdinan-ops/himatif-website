@@ -1,28 +1,21 @@
-import React from 'react'
-import Card from './Card'
 import useMembers from '@/hooks/useMembers'
 import { IMember } from '@/types/member.type'
+import Card from './Card'
 
 interface DivisiProps {
-  year: string,
-  title: string,
+  latestYear: string
+  title: string
+  slug: string
 }
 
-const Divisi: React.FC<DivisiProps> = ({ title, year }) => {
-  const { data: members } = useMembers(year, title)
-
-  console.log(members);
-
+const Divisi: React.FC<DivisiProps> = ({ title, latestYear, slug }) => {
+  const { data: members } = useMembers(latestYear, slug)
 
   return (
-    <div className='flex flex-col md:gap-10 gap-8 font-title'>
-      <h1 className='text-lg md:text-2xl font-bold'>{title}</h1>
-      <div className='flex gap-6 xl:gap-8 overflow-y-auto no-scrollbar'>
-        {members && (
-          members.data.map((member: IMember) => (
-            <Card key={member.id} member={member} />
-          )))
-        }
+    <div className="flex flex-col gap-8 font-title md:gap-10">
+      <h1 className="text-lg font-bold md:text-2xl">{title}</h1>
+      <div className="no-scrollbar flex gap-6 overflow-y-auto xl:gap-8">
+        {members && members.data.map((member: IMember) => <Card key={member.id} member={member} />)}
       </div>
     </div>
   )

@@ -1,13 +1,4 @@
-interface ICategory {
-  id: number
-  attributes: {
-    nama: string
-    slug: string
-    createdAt: string
-    updatedAt: string
-    publishedAt: string
-  }
-}
+import { ICategory } from './category.type'
 
 export interface IThumbnail {
   id: number
@@ -62,11 +53,11 @@ export interface IBlogData {
     thumbnail: {
       data: IThumbnail
     }
-  },
+  }
 }
 
 export interface IBlog {
-  data: IBlogData[],
+  data: IBlogData[]
   meta: {
     pagination: Pagination
   }

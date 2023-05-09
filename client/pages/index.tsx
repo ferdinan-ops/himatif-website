@@ -1,10 +1,10 @@
-import { Layout, Hero, Visi, Misi, Tujuan, About } from '../components'
-import { IHimatif } from '../types/himatif.type'
-import { IBlog } from '../types/blog.type'
-import { getBlogsFeatures, getHimatifInfos } from '../lib/api'
+import { Layout, Hero, Visi, Misi, Tujuan, About } from '@/components'
+import { getBlogsFeatures, getHimatifInfos } from '@/lib/api'
+import { IHimatif } from '@/types/himatif.type'
+import { IBlogData } from '@/types/blog.type'
 
 interface HomeProps {
-  blogs: IBlog[]
+  blogs: IBlogData[]
   himatif: IHimatif
 }
 
@@ -25,6 +25,9 @@ export const getServerSideProps = async () => {
   const { data: himatif } = await getHimatifInfos()
 
   return {
-    props: { blogs: blogs.data, himatif: himatif.data.attributes }
+    props: {
+      blogs: blogs.data,
+      himatif: himatif.data.attributes
+    }
   }
 }

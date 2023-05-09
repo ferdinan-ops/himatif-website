@@ -1,4 +1,4 @@
-import { ITujuan } from '../../types/himatif.type'
+import { ITujuan } from '@/types/himatif.type'
 import Container from '../AllPages/Container'
 import Image from 'next/image'
 

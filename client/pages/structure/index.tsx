@@ -1,16 +1,17 @@
 import { GetServerSideProps } from 'next/types'
 
-import { Divisi, Container, Dropdown, Layout } from '../../components'
-import { IMember } from '../../types/member.type'
-import { getMemberDivisi, getYears } from '../../lib/api'
+import { Divisi, Container, Dropdown, Layout } from '@/components'
+import { getDivisi, getYears } from '@/lib/api'
+import { IDivisi, IYearMember } from '@/types/member.type'
 
 interface StructureProps {
-  thisYear: string
-  years: IMember[]
-  divisi: IMember[]
+  latestYear: string
+  allYears: [string]
+  divisi: IDivisi[]
 }
 
-export default function Structure({ years, divisi, thisYear }: StructureProps) {
+export default function Structure({ allYears, divisi, latestYear }: StructureProps) {
+
   return (
     <Layout title="Blogs ~ Himpunan Mahasiswa Teknik Informatika" isHome={false}>
       <Container className="my-[96px] py-5 pb-14 font-sans text-font-black xl:py-20">
@@ -18,12 +19,16 @@ export default function Structure({ years, divisi, thisYear }: StructureProps) {
           <h1 className="text-center text-lg font-bold xl:text-3xl">
             Struktur Organisasi Himpunan Mahasiswa Teknik Informatika (HIMATIF)
           </h1>
-          <Dropdown years={years} />
+          <Dropdown years={allYears} />
         </div>
-        <img src="./structure-3.png" alt="struktur organisasi HIMATIF" className='w-full xl:w-10/12 mx-auto rounded-lg' />
-        <div className='flex flex-col gap-20 xl:gap-28 md:mt-20 mt-14'>
+        <img
+          src="./structure-3.png"
+          alt="struktur organisasi HIMATIF"
+          className="mx-auto w-full rounded-lg xl:w-10/12"
+        />
+        <div className="mt-14 flex flex-col gap-20 md:mt-20 xl:gap-28">
           {divisi.map((item) => (
-            <Divisi year={thisYear} title={item.attributes.divisi} />
+            <Divisi latestYear={latestYear} title={item.attributes.nama_divisi} slug={item.attributes.slug} />
           ))}
         </div>
       </Container>
@@ -32,35 +37,17 @@ export default function Structure({ years, divisi, thisYear }: StructureProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
+  const { data: divisi } = await getDivisi()
   const { data: years } = await getYears()
-  let tahunTerbesar = 0;
-  years.data.forEach((item: IMember) => {
-    const tahun = parseInt(item.attributes.tahun_bergabung)
-    if (tahun > tahunTerbesar) {
-      tahunTerbesar = tahun
-    }
-  })
 
-  const tahun: IMember[] = [];
-  years.data.forEach((item: IMember) => {
-    if (!tahun.find((uniqueItem) => uniqueItem.attributes.tahun_bergabung === item.attributes.tahun_bergabung)) {
-      tahun.push(item);
-    }
-  });
-
-  const { data } = await getMemberDivisi(tahunTerbesar.toString())
-  const divisi: IMember[] = [];
-  data.data.forEach((item: IMember) => {
-    if (!divisi.find((uniqueItem) => uniqueItem.attributes.divisi === item.attributes.divisi)) {
-      divisi.push(item);
-    }
-  });
+  const allYears = years.data.map((year: IYearMember) => year.attributes.tahun_angkatan)
+  const latestYear = Math.max(...allYears)
 
   return {
     props: {
-      years: tahun,
-      thisYear: tahunTerbesar.toString(),
-      divisi,
+      divisi: divisi.data,
+      allYears,
+      latestYear
     }
   }
 }

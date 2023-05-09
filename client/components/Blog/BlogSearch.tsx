@@ -1,13 +1,13 @@
-import * as React from "react"
-import { useRouter } from "next/router"
 import Image from "next/image"
-
+import { useState } from "react"
+import { useRouter } from "next/router"
 import { BiSearch } from "react-icons/bi"
+
 import Container from "../AllPages/Container"
 
 const BlogSearch = () => {
   const router = useRouter()
-  const [keyword, setKeyword] = React.useState<string>('')
+  const [keyword, setKeyword] = useState<string>('')
   const blogImage = "https://source.unsplash.com/random?technology"
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
