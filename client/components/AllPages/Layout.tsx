@@ -7,11 +7,11 @@ import { IBlogMeta } from '@/types/blog.type'
 interface LayoutProps {
   children: React.ReactNode
   title: string
-  isHome: boolean
+  variant?: 'home' | '404'
   meta?: IBlogMeta
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, title, isHome, meta }) => {
+const Layout: React.FC<LayoutProps> = ({ children, title, meta, variant }) => {
   return (
     <>
       <Head>
@@ -26,9 +26,9 @@ const Layout: React.FC<LayoutProps> = ({ children, title, isHome, meta }) => {
           </>
         )}
       </Head>
-      <Header isHome={isHome} />
+      <Header isHome={variant === 'home'} />
       <main>{children}</main>
-      <Footer />
+      {variant !== '404' && <Footer />}
     </>
   )
 }

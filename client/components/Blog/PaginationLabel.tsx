@@ -1,9 +1,13 @@
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2'
 
-const PaginationLabel: React.FC<{ isLeft: boolean }> = ({ isLeft }) => {
+interface PaginationLabelProps {
+  variant: 'prev' | 'next'
+}
+
+const PaginationLabel: React.FC<PaginationLabelProps> = ({ variant }) => {
   return (
-    <span className="flex h-8 w-8 xl:h-10 xl:w-10 items-center justify-center rounded-full hover:bg-primary/20">
-      {isLeft ? <HiChevronLeft /> : <HiChevronRight />}
+    <span className="flex h-8 w-8 md:h-10 md:w-10 items-center justify-center rounded-lg hover:bg-primary/20">
+      {variant === 'prev' ? <HiChevronLeft /> : <HiChevronRight />}
     </span>
   )
 }

@@ -1,24 +1,24 @@
 import { GetServerSideProps } from 'next/types'
 
 import { Divisi, Container, Dropdown, Layout } from '@/components'
-import { getMemberDivisi, getYears } from '@/lib/api'
-import { IMember } from '@/types/member.type'
+import { getDivisi, getYears } from '@/lib/api'
+import { IDivisi, IYearMember } from '@/types/member.type'
 
 interface StructureDetailProps {
-  thisYear: string
-  years: IMember[]
-  divisi: IMember[]
+  latestYear: string
+  allYears: [string]
+  divisi: IDivisi[]
 }
 
-export default function StructureDetail({ years, divisi, thisYear }: StructureDetailProps) {
+export default function StructureDetail({ allYears, divisi, latestYear }: StructureDetailProps) {
   return (
-    <Layout title="Blogs ~ Himpunan Mahasiswa Teknik Informatika" isHome={false}>
+    <Layout title="Blogs ~ Himpunan Mahasiswa Teknik Informatika">
       <Container className="my-[96px] py-5 pb-14 font-sans text-font-black xl:py-20">
         <div className="mx-auto flex flex-col items-center gap-8 pb-10 md:w-8/12 xl:w-6/12 xl:pb-14">
           <h1 className="text-center text-lg font-bold xl:text-3xl">
             Struktur Organisasi Himpunan Mahasiswa Teknik Informatika (HIMATIF)
           </h1>
-          <Dropdown years={years} />
+          <Dropdown years={allYears} />
         </div>
         <img
           src="/structure-3.png"
@@ -27,7 +27,12 @@ export default function StructureDetail({ years, divisi, thisYear }: StructureDe
         />
         <div className="mt-14 flex flex-col gap-20 md:mt-20 xl:gap-28">
           {divisi.map((item) => (
-            <Divisi year={thisYear} title={item.attributes.divisi} />
+            <Divisi
+              key={item.id}
+              latestYear={latestYear}
+              slug={item.attributes.slug}
+              title={item.attributes.nama_divisi}
+            />
           ))}
         </div>
       </Container>
@@ -37,30 +42,17 @@ export default function StructureDetail({ years, divisi, thisYear }: StructureDe
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { slug } = context.query
+
+  const { data: divisi } = await getDivisi()
   const { data: years } = await getYears()
 
-  const tahun: IMember[] = []
-  years.data.forEach((item: IMember) => {
-    if (!tahun.find((uniqueItem) => uniqueItem.attributes.tahun_bergabung === item.attributes.tahun_bergabung)) {
-      tahun.push(item)
-    }
-  })
-
-  const { data } = await getMemberDivisi(slug as string)
-  if (data.data.length === 0) return { notFound: true }
-
-  const divisi: IMember[] = []
-  data.data.forEach((item: IMember) => {
-    if (!divisi.find((uniqueItem) => uniqueItem.attributes.divisi === item.attributes.divisi)) {
-      divisi.push(item)
-    }
-  })
+  const allYears = years.data.map((year: IYearMember) => year.attributes.tahun_angkatan)
 
   return {
     props: {
-      years: tahun,
-      thisYear: slug?.toString(),
-      divisi
+      divisi: divisi.data,
+      allYears,
+      latestYear: slug
     }
   }
 }

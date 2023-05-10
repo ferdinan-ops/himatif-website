@@ -13,7 +13,7 @@ interface StructureProps {
 export default function Structure({ allYears, divisi, latestYear }: StructureProps) {
 
   return (
-    <Layout title="Blogs ~ Himpunan Mahasiswa Teknik Informatika" isHome={false}>
+    <Layout title="Blogs ~ Himpunan Mahasiswa Teknik Informatika">
       <Container className="my-[96px] py-5 pb-14 font-sans text-font-black xl:py-20">
         <div className="mx-auto flex flex-col items-center gap-8 pb-10 md:w-8/12 xl:w-6/12 xl:pb-14">
           <h1 className="text-center text-lg font-bold xl:text-3xl">
@@ -28,7 +28,12 @@ export default function Structure({ allYears, divisi, latestYear }: StructurePro
         />
         <div className="mt-14 flex flex-col gap-20 md:mt-20 xl:gap-28">
           {divisi.map((item) => (
-            <Divisi latestYear={latestYear} title={item.attributes.nama_divisi} slug={item.attributes.slug} />
+            <Divisi
+              key={item.id}
+              latestYear={latestYear}
+              slug={item.attributes.slug}
+              title={item.attributes.nama_divisi}
+            />
           ))}
         </div>
       </Container>

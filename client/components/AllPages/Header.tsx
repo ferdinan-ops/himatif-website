@@ -17,7 +17,7 @@ const Logo: React.FC<{ isTop: boolean; home: string }> = ({ isTop, home }) => {
   )
 }
 
-const Header: React.FC<{ isHome: boolean }> = ({ isHome }) => {
+const Header: React.FC<{ isHome?: boolean }> = ({ isHome }) => {
   const [isShow, setIsShow] = useState<boolean>(false)
   const [isTop, setIsTop] = useState<boolean>(true)
 

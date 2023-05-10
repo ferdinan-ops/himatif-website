@@ -1,10 +1,10 @@
 import { getBlogByCategories, getBlogByCategoryAndKeyword, getBlogByKeyword, getBlogs } from '@/lib/api'
-import { BlogSearch, Categories, Layout, NoPost, Pagination, Posts } from '@/components'
+import { BlogSearch, Categories, Container, Layout, NoPost, Pagination, Posts } from '@/components'
 import { GetServerSideProps } from 'next'
-import { useState } from 'react'
+import { HiArrowLeft } from 'react-icons/hi2'
 
 import { IBlog } from '@/types/blog.type'
-import usePosts from '@/hooks/usePosts'
+import Link from 'next/link'
 
 interface BlogsProps {
   posts: IBlog
@@ -13,37 +13,44 @@ interface BlogsProps {
 }
 
 export default function Blogs({ posts, category, search }: BlogsProps) {
-  const [currentPage, setCurrentPage] = useState<number>(1)
-  const { data: blogs }: { data: IBlog } = usePosts(posts, currentPage, category, search)
+  const backButton = (
+    <Link
+      href='/blogs'
+      className='px-4 py-2 rounded-lg bg-primary text-white mb-20 text-sm flex items-center mx-auto gap-2 w-fit hover:bg-primary-dark'
+    >
+      <HiArrowLeft />
+      Kembali ke semua blog
+    </Link>
+  )
 
   return (
-    <Layout title="Blogs ~ Himpunan Mahasiswa Teknik Informatika" isHome={false}>
-      <BlogSearch />
-      <Categories slug={category} />
-      {blogs.data.length === 0 ? <NoPost /> : <Posts posts={blogs.data} />}
-      {blogs.meta.pagination.total > 6 && (
-        <Pagination
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          totalPages={blogs.meta.pagination.total / 6}
-        />
-      )}
+    <Layout title="Blogs ~ Himpunan Mahasiswa Teknik Informatika">
+      <Container className='mt-24'>
+        <BlogSearch search={search as string} />
+        <Categories slug={category} search={search} />
+        {posts.data.length === 0 ? <NoPost category={category} keyword={search} /> : <Posts posts={posts.data} />}
+        {search && backButton}
+        {posts.meta.pagination.total > 6 && <Pagination totalPages={posts.meta.pagination.total / 6} />}
+      </Container>
     </Layout>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   let posts
-  const { search, category } = context.query
+  let currentPage = 1
+  const { search, category, page } = context.query
+
+  if (page) currentPage = parseInt(page as string)
 
   if (search && category) {
-    posts = await getBlogByCategoryAndKeyword(category as string, search as string)
+    posts = await getBlogByCategoryAndKeyword(category as string, search as string, currentPage)
   } else if (search) {
-    posts = await getBlogByKeyword(search as string)
+    posts = await getBlogByKeyword(search as string, currentPage)
   } else if (category) {
-    posts = await getBlogByCategories(category as string)
+    posts = await getBlogByCategories(category as string, currentPage)
   } else {
-    posts = await getBlogs(1)
+    posts = await getBlogs(currentPage)
   }
 
   return {

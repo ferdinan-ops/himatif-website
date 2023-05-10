@@ -1,6 +1,14 @@
-import useMembers from '@/hooks/useMembers'
 import { IMember } from '@/types/member.type'
+import useMembers from '@/hooks/useMembers'
+
+import SwiperButton from '../AllPages/SwiperButton'
 import Card from './Card'
+
+import { Swiper as SwiperWrapper, SwiperSlide } from 'swiper/react'
+import { A11y, Navigation, Pagination } from 'swiper';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 interface DivisiProps {
   latestYear: string
@@ -12,11 +20,29 @@ const Divisi: React.FC<DivisiProps> = ({ title, latestYear, slug }) => {
   const { data: members } = useMembers(latestYear, slug)
 
   return (
-    <div className="flex flex-col gap-8 font-title md:gap-10">
-      <h1 className="text-lg font-bold md:text-2xl">{title}</h1>
-      <div className="no-scrollbar flex gap-6 overflow-y-auto xl:gap-8">
-        {members && members.data.map((member: IMember) => <Card key={member.id} member={member} />)}
-      </div>
+    <div className="flex flex-col font-title">
+      <h1 className="text-lg font-bold md:text-2xl mb-8 md:mb-10">{title}</h1>
+      <SwiperWrapper
+        modules={[Pagination, Navigation, A11y]}
+        slidesPerView={"auto"}
+        spaceBetween={28}
+        grabCursor={true}
+        className='structure'
+      >
+        {members && members.data.map((member: IMember, idx: number) => (
+          <SwiperSlide key={idx} className='card'>
+            <Card member={member} />
+          </SwiperSlide>
+        ))}
+        {members && members.data.length > 4 && (
+          <div className="flex justify-end mt-5">
+            <div className='flex gap-4 md:gap-5'>
+              <SwiperButton variant='prev' className='border border-slate-400 w-8 h-8 md:w-10 md:h-10' />
+              <SwiperButton variant='next' className='border border-slate-400 w-8 h-8 md:w-10 md:h-10' />
+            </div>
+          </div>
+        )}
+      </SwiperWrapper>
     </div>
   )
 }

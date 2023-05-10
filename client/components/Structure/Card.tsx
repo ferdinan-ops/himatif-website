@@ -21,10 +21,10 @@ const Card: React.FC<CardProps> = ({ member }) => {
           className="object-cover"
           fill
         />
-        <div className="profile-gradient absolute inset-x-0 bottom-0 flex flex-col p-6">
+        <div className="profile-gradient absolute inset-0 flex flex-col px-3 py-4 xl:p-6">
           <div className="mt-auto flex flex-col gap-1 text-white">
-            <span className="text-base font-bold md:text-lg">{attributes.nama}</span>
-            <span className="text-xs font-semibold md:text-sm">{attributes.jabatan}</span>
+            <span className="text-[15px] font-bold md:text-lg">{attributes.nama}</span>
+            <span className="text-xs font-semibold md:text-sm text-sky-300">{attributes.jabatan}</span>
           </div>
         </div>
       </div>

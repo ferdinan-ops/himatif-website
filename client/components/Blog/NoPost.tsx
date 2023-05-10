@@ -1,9 +1,12 @@
-import Container from "../AllPages/Container"
-
 import Lottie from 'react-lottie'
 import animationData from '../../assets/lotties/not-found.json'
 
-const NoPost = () => {
+interface NoPostProps {
+  keyword?: string
+  category?: string
+}
+
+const NoPost: React.FC<NoPostProps> = ({ keyword, category }) => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -14,7 +17,7 @@ const NoPost = () => {
   };
 
   return (
-    <Container className="max-w-[600px] flex flex-col pt-2 pb-12">
+    <article className="max-w-[600px] flex flex-col pb-5 mx-auto">
       <div className='flex m-auto flex-col items-center'>
         <div className="w-[150px] h-[150px] md:w-[250px] md:h-[250px]">
           <Lottie
@@ -28,12 +31,15 @@ const NoPost = () => {
             Tidak ada blog yang ditemukan
           </h2>
           <p className="text-xs text-center md:text-sm text-font-gray">
-            Kami tidak dapat menemukan blog apa pun berdasarkan pencarian Anda
+            Kami tidak dapat menemukan blog dengan{" "}
+            {keyword && <>keyword <span className="font-bold">'{keyword}'</span></>}
+            {keyword && category && ' dan '}
+            {category && <>kategori <span className="font-bold">'{category}'</span></>}
           </p>
         </div>
 
       </div>
-    </Container>
+    </article>
   )
 }
 

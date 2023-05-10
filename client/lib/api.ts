@@ -6,6 +6,7 @@ export const axiosPublic = axios.create({
 
 const POST_URI = '/posts?populate=kategori,thumbnail&sort=tanggal:desc'
 const blogPagination = 'pagination[page]=1&pagination[pageSize]=6'
+const blogPageSize = 'pagination[pageSize]=6'
 
 /* CATEGORIES */
 export const getCategories = () => {
@@ -41,18 +42,18 @@ export const getBlog = (slug: string) => {
   return axiosPublic.get(query)
 }
 
-export const getBlogByCategories = (category: string) => {
-  const query = `${POST_URI}&filters[kategori][slug][$eq]=${category}&${blogPagination}`
+export const getBlogByCategories = (category: string, page: number) => {
+  const query = `${POST_URI}&filters[kategori][slug][$eq]=${category}&pagination[page]=${page}&${blogPageSize}`
   return axiosPublic.get(query)
 }
 
-export const getBlogByKeyword = (keyword: string) => {
-  const query = `${POST_URI}&filters[judul][$contains]=${keyword}&${blogPagination}`
+export const getBlogByKeyword = (keyword: string, page: number) => {
+  const query = `${POST_URI}&filters[judul][$contains]=${keyword}&pagination[page]=${page}&${blogPageSize}`
   return axiosPublic.get(query)
 }
 
-export const getBlogByCategoryAndKeyword = (category: string, keyword: string) => {
-  const query = `${POST_URI}&filters[judul][$contains]=${keyword}&filters[kategori][slug][$eq]=${category}&${blogPagination}`
+export const getBlogByCategoryAndKeyword = (category: string, keyword: string, page: number) => {
+  const query = `${POST_URI}&filters[judul][$contains]=${keyword}&filters[kategori][slug][$eq]=${category}&pagination[page]=${page}&${blogPageSize}`
   return axiosPublic.get(query)
 }
 
@@ -63,7 +64,7 @@ export const getMembers = (year: string) => {
 }
 
 export const getDivisi = () => {
-  return axiosPublic.get('/divisions?sort[0]=createdAt:desc')
+  return axiosPublic.get('/divisions?sort[0]=nama_divisi:asc')
 }
 
 export const getYears = () => {

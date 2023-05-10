@@ -5,7 +5,7 @@ interface NavLinkProps {
   href: string
   children: React.ReactNode
   isTop: boolean
-  isHome: boolean
+  isHome?: boolean
 }
 
 const NavLink: React.FC<NavLinkProps> = ({ href, children, isTop, isHome }) => {

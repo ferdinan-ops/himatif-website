@@ -1,12 +1,11 @@
+import Lottie from 'react-lottie'
 import { GetServerSideProps } from 'next'
+import { MdEmail, MdPhone } from 'react-icons/md'
 
 import { getContact } from '@/lib/api'
 import { Container, Layout } from '@/components'
-import { MdEmail, MdPhone } from 'react-icons/md'
 import { IContactData } from '@/types/himatif.type'
-
-import Lottie from 'react-lottie'
-import animationData from '../../assets/lotties/contact-mail.json'
+import animationData from '@/assets/lotties/contact-mail.json'
 
 interface ContactProps {
   contacts: IContactData
@@ -23,7 +22,7 @@ export default function Contact({ contacts }: ContactProps) {
   };
 
   return (
-    <Layout title="Hubungi Kami ~ Himpunan Mahasiswa Teknik Informatika" isHome={false}>
+    <Layout title="Hubungi Kami ~ Himpunan Mahasiswa Teknik Informatika">
       <Container className="my-[96px] py-5 pb-14 font-sans text-font-black xl:py-20">
         <div className="mx-auto flex flex-col items-center gap-8 pb-0 md:w-8/12 xl:w-6/12 xl:pb-14">
           <h1 className="text-center text-lg font-bold xl:text-3xl xl:pb-10">Hubungi Kami melalui Kontak Ini</h1>
