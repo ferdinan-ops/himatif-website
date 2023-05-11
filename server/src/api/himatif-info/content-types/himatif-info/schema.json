@@ -41,6 +41,14 @@
       "type": "component",
       "repeatable": false,
       "component": "himatif-details.kontak"
+    },
+    "gambar_struktur": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

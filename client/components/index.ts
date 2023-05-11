@@ -44,5 +44,5 @@ export {
   /* Structure */
   Dropdown,
   Card,
-  Divisi,
+  Divisi
 }

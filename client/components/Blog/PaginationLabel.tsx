@@ -6,7 +6,7 @@ interface PaginationLabelProps {
 
 const PaginationLabel: React.FC<PaginationLabelProps> = ({ variant }) => {
   return (
-    <span className="flex h-8 w-8 md:h-10 md:w-10 items-center justify-center rounded-lg hover:bg-primary/20">
+    <span className="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-primary/20 md:h-10 md:w-10">
       {variant === 'prev' ? <HiChevronLeft /> : <HiChevronRight />}
     </span>
   )

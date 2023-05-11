@@ -15,8 +15,8 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, isTop, isHome }) => {
     router.pathname === href
       ? ''
       : isTop
-        ? `text-font-black/60 hover:text-font-black ${isHome && 'xl:text-white/60 xl:hover:text-white'}`
-        : 'text-font-black/60 hover:text-font-black'
+      ? `text-font-black/60 hover:text-font-black ${isHome && 'xl:text-white/60 xl:hover:text-white'}`
+      : 'text-font-black/60 hover:text-font-black'
 
   return (
     <Link href={href} className={`font-semibold tracking-wide ${activeClass}`}>

@@ -1,4 +1,4 @@
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa'
 import { BsTelephone } from 'react-icons/bs'
 import { FiMail } from 'react-icons/fi'
 import Container from './Container'
@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { IContactData } from '@/types/himatif.type'
-import useContact from "@/hooks/useContact"
+import useContact from '@/hooks/useContact'
 import { menu } from '@/lib/data'
 
 const Footer = () => {
@@ -28,13 +28,22 @@ const Footer = () => {
               Ilmu Komputer, Universitas Katolik Santo Thomas, Medan
             </p>
             <div className="mt-6 flex items-center gap-5 text-font-black md:mt-8 md:gap-8">
-              <Link href={contacts ? contacts.data.attributes.kontak.facebook_link : '/'} className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2">
+              <Link
+                href={contacts ? contacts.data.attributes.kontak.facebook_link : '/'}
+                className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2"
+              >
                 <FaFacebookF className="text-base md:text-lg" />
               </Link>
-              <Link href={contacts ? contacts.data.attributes.kontak.twitter_link : '/'} className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2">
+              <Link
+                href={contacts ? contacts.data.attributes.kontak.twitter_link : '/'}
+                className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2"
+              >
                 <FaTwitter className="text-base md:text-lg" />
               </Link>
-              <Link href={contacts ? contacts.data.attributes.kontak.instagram_link : '/'} className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2">
+              <Link
+                href={contacts ? contacts.data.attributes.kontak.instagram_link : '/'}
+                className="rounded-full bg-white p-1.5 hover:bg-slate-300 md:p-2"
+              >
                 <FaInstagram className="text-base md:text-lg" />
               </Link>
             </div>

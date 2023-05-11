@@ -24,7 +24,7 @@ const Card: React.FC<CardProps> = ({ member }) => {
         <div className="profile-gradient absolute inset-0 flex flex-col px-3 py-4 xl:p-6">
           <div className="mt-auto flex flex-col gap-1 text-white">
             <span className="text-[15px] font-bold md:text-lg">{attributes.nama}</span>
-            <span className="text-xs font-semibold md:text-sm text-sky-300">{attributes.jabatan}</span>
+            <span className="text-xs font-semibold text-sky-300 md:text-sm">{attributes.jabatan}</span>
           </div>
         </div>
       </div>

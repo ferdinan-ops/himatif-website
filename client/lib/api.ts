@@ -31,6 +31,11 @@ export const getHimatifInfos = () => {
   return axiosPublic.get(query)
 }
 
+export const getStructureOrganization = () => {
+  const query = '/himatif-infos?populate=gambar_struktur&fields[0]=gambar_struktur'
+  return axiosPublic.get(query)
+}
+
 /* BLOGS */
 export const getBlogs = (page: number) => {
   const query = `${POST_URI}&pagination[page]=${page}&pagination[pageSize]=6`

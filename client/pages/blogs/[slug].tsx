@@ -32,7 +32,7 @@ export default function Blog({ blog }: BlogProps) {
           <Share url={`${process.env.NEXT_PUBLIC_BLOG_URI}/${attributes.slug}`} />
         </div>
 
-        <div className="relative mx-auto mt-6 mb-10 h-80 w-full overflow-hidden rounded-lg border md:mt-10 md:mb-20 md:h-[450px] xl:h-[600px] xl:w-10/12">
+        <div className="relative mx-auto mb-10 mt-6 h-80 w-full overflow-hidden rounded-lg border md:mb-20 md:mt-10 md:h-[450px] xl:h-[600px] xl:w-10/12">
           <Image src={attributes.thumbnail.data.attributes.url} alt={attributes.judul} fill className="object-cover" />
         </div>
 

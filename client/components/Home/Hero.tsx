@@ -44,9 +44,10 @@ const Hero: React.FC<HeroProps> = ({ blogs }) => {
             <div className="absolute z-0 flex h-full w-full">
               <div className="relative h-full w-full">
                 <Image
-                  src={blog.attributes.thumbnail.data.attributes.url}
-                  alt={blog.attributes.thumbnail.data.attributes.caption || ''}
                   fill
+                  src={blog.attributes.thumbnail.data.attributes.url}
+                  alt={blog.attributes.judul}
+                  loading="lazy"
                   className="object-cover brightness-[.40]"
                 />
               </div>

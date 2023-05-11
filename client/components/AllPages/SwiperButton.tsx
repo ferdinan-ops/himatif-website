@@ -1,8 +1,8 @@
-import { HiChevronRight, HiChevronLeft } from "react-icons/hi2"
-import { useSwiper } from "swiper/react"
+import { HiChevronRight, HiChevronLeft } from 'react-icons/hi2'
+import { useSwiper } from 'swiper/react'
 
 interface SwiperButtonProps {
-  className: string,
+  className: string
   variant: 'prev' | 'next'
 }
 

@@ -1,4 +1,4 @@
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa'
 import Container from '../AllPages/Container'
 import Link from 'next/link'
 
@@ -23,13 +23,22 @@ const About: React.FC<AboutProps> = ({ desc, contact }) => {
         <span className="mx-auto my-5 block h-2 w-2 rounded-full bg-slate-200 md:h-3 md:w-3" />
 
         <div className="flex items-center justify-center gap-8 text-font-black">
-          <Link href={contact.facebook_link} className="rounded-full p-2 transition-all hover:bg-primary hover:text-white">
+          <Link
+            href={contact.facebook_link}
+            className="rounded-full p-2 transition-all hover:bg-primary hover:text-white"
+          >
             <FaFacebookF className="text-base md:text-lg" />
           </Link>
-          <Link href={contact.twitter_link} className="rounded-full p-2 transition-all hover:bg-primary hover:text-white">
+          <Link
+            href={contact.twitter_link}
+            className="rounded-full p-2 transition-all hover:bg-primary hover:text-white"
+          >
             <FaTwitter className="text-base md:text-lg" />
           </Link>
-          <Link href={contact.instagram_link} className="rounded-full p-2 transition-all hover:bg-primary hover:text-white">
+          <Link
+            href={contact.instagram_link}
+            className="rounded-full p-2 transition-all hover:bg-primary hover:text-white"
+          >
             <FaInstagram className="text-base md:text-lg" />
           </Link>
         </div>
@@ -38,14 +47,12 @@ const About: React.FC<AboutProps> = ({ desc, contact }) => {
       <div className="relative mt-20 h-64 overflow-x-hidden">
         <div className="radial-gradient absolute inset-x-0 top-0 h-20 w-[105%] origin-top-left rotate-6 overflow-hidden text-[#060919] md:rotate-[4deg] xl:h-28 xl:rotate-3">
           <span className="absolute top-1/2 w-max -translate-y-1/2 text-3xl font-bold xl:text-5xl">
-            HIMPUNAN MAHASISWA TEKNIK INFORMATIKA <span>⚡</span> HIMPUNAN MAHASISWA TEKNIK
-            INFORMATIKA
+            HIMPUNAN MAHASISWA TEKNIK INFORMATIKA <span>⚡</span> HIMPUNAN MAHASISWA TEKNIK INFORMATIKA
           </span>
         </div>
         <div className="radial-gradient absolute -left-3 top-0 z-10 h-20 w-[105%] origin-top-right -rotate-6 overflow-hidden text-[#060919] shadow-2xl md:-rotate-[4deg] xl:h-28 xl:-rotate-3">
           <span className="absolute top-1/2 w-max -translate-y-1/2 text-3xl font-bold xl:text-5xl">
-            HIMPUNAN MAHASISWA TEKNIK INFORMATIKA <span>⚡</span> HIMPUNAN MAHASISWA TEKNIK
-            INFORMATIKA
+            HIMPUNAN MAHASISWA TEKNIK INFORMATIKA <span>⚡</span> HIMPUNAN MAHASISWA TEKNIK INFORMATIKA
           </span>
         </div>
       </div>

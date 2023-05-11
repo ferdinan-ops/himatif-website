@@ -1,7 +1,7 @@
-import Image from "next/image"
-import { useState } from "react"
-import { useRouter } from "next/router"
-import { BiSearch } from "react-icons/bi"
+import Image from 'next/image'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { BiSearch } from 'react-icons/bi'
 
 interface BlogSearchProps {
   search: string
@@ -10,16 +10,16 @@ interface BlogSearchProps {
 const BlogSearch: React.FC<BlogSearchProps> = ({ search }) => {
   const router = useRouter()
   const [keyword, setKeyword] = useState<string>(search)
-  const blogImage = "https://source.unsplash.com/random?technology"
+  const blogImage = 'https://source.unsplash.com/random?technology'
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     delete router.query.page
     router.push({
-      pathname: "/blogs",
-      query: { ...router.query, search: keyword },
-    });
-  };
+      pathname: '/blogs',
+      query: { ...router.query, search: keyword }
+    })
+  }
 
   return (
     <div className="relative flex h-36 rounded-xl md:h-40 xl:h-48">
@@ -30,7 +30,10 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ search }) => {
         </div>
       </div>
       <div className="absolute -bottom-[26px] left-1/2 w-[80%] -translate-x-1/2 overflow-hidden rounded-xl shadow-xl shadow-gray-200 md:w-[50%]">
-        <form className="flex items-center gap-3 bg-white px-5 py-2.5 md:gap-5 md:px-6 md:py-3 xl:px-7 xl:py-3.5" onSubmit={handleSearch}>
+        <form
+          className="flex items-center gap-3 bg-white px-5 py-2.5 md:gap-5 md:px-6 md:py-3 xl:px-7 xl:py-3.5"
+          onSubmit={handleSearch}
+        >
           <BiSearch className="text-xl text-slate-400 md:text-2xl xl:text-3xl" />
           <input
             value={keyword}

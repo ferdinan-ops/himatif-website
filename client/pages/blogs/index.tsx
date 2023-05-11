@@ -15,8 +15,8 @@ interface BlogsProps {
 export default function Blogs({ posts, category, search }: BlogsProps) {
   const backButton = (
     <Link
-      href='/blogs'
-      className='px-4 py-2 rounded-lg bg-primary text-white mb-20 text-sm flex items-center mx-auto gap-2 w-fit hover:bg-primary-dark'
+      href="/blogs"
+      className="mx-auto mb-20 flex w-fit items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm text-white hover:bg-primary-dark"
     >
       <HiArrowLeft />
       Kembali ke semua blog
@@ -25,7 +25,7 @@ export default function Blogs({ posts, category, search }: BlogsProps) {
 
   return (
     <Layout title="Blogs ~ Himpunan Mahasiswa Teknik Informatika">
-      <Container className='mt-24'>
+      <Container className="mt-24">
         <BlogSearch search={search as string} />
         <Categories slug={category} search={search} />
         {posts.data.length === 0 ? <NoPost category={category} keyword={search} /> : <Posts posts={posts.data} />}
@@ -57,7 +57,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       posts: posts.data,
       search: search ? search : '',
-      category: category ? category : '',
+      category: category ? category : ''
     }
   }
 }

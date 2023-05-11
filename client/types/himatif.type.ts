@@ -9,6 +9,15 @@ export interface ITujuan {
   }
 }
 
+export interface IOrganizationStructure {
+  id: number,
+  attributes: {
+    gambar_struktur: {
+      data: IThumbnail
+    }
+  }
+}
+
 export interface IContact {
   id: number
   email: string

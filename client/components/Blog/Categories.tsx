@@ -9,12 +9,12 @@ import CategoryButton from './CategoryButton'
 import { SwiperSlide, Swiper as SwiperWrapper } from 'swiper/react'
 import Swiper, { A11y, Navigation, Pagination } from 'swiper'
 
-import 'swiper/css';
-import 'swiper/css/pagination';
+import 'swiper/css'
+import 'swiper/css/pagination'
 import SwiperButton from '../AllPages/SwiperButton'
 
 interface CategoriesProps {
-  slug?: string,
+  slug?: string
   search?: string
 }
 
@@ -52,15 +52,15 @@ const Categories: React.FC<CategoriesProps> = ({ slug, search }) => {
     <div className="mt-16 md:mt-20 xl:mt-24">
       <SwiperWrapper
         modules={[Pagination, Navigation, A11y]}
-        slidesPerView={"auto"}
+        slidesPerView={'auto'}
         spaceBetween={18}
         grabCursor={category && category.data.length > 10}
         onSlideChange={(swiper) => handleSlide(swiper)}
-        className="structure font-semibold text-font-black relative"
+        className="structure relative font-semibold text-font-black"
       >
         {!isBeginning && (
-          <div className="absolute left-0 inset-y-0 z-10 category-bg-2 flex w-16 pl-1">
-            <SwiperButton variant="prev" className="w-8 h-8 my-auto mr-auto" />
+          <div className="category-bg-2 absolute inset-y-0 left-0 z-10 flex w-16 pl-1">
+            <SwiperButton variant="prev" className="my-auto mr-auto h-8 w-8" />
           </div>
         )}
 
@@ -70,20 +70,25 @@ const Categories: React.FC<CategoriesProps> = ({ slug, search }) => {
           </CategoryButton>
         </SwiperSlide>
 
-        {category && category.data.map((category: ICategory) => (
-          <SwiperSlide key={category.id}>
-            <CategoryButton
-              active={slug === category.attributes.slug}
-              onClick={() => handleCategory(category.attributes.slug)}
-            >
-              {category.attributes.nama}
-            </CategoryButton>
-          </SwiperSlide>
-        ))}
+        {category &&
+          category.data.map((category: ICategory) => (
+            <SwiperSlide key={category.id}>
+              <CategoryButton
+                active={slug === category.attributes.slug}
+                onClick={() => handleCategory(category.attributes.slug)}
+              >
+                {category.attributes.nama}
+              </CategoryButton>
+            </SwiperSlide>
+          ))}
 
         {!isEnd && (
-          <div className={`absolute right-0 inset-y-0 z-10 category-bg flex w-10 md:w-16 pr-1 ${category?.data?.length < 10 && "md:hidden"}`}>
-            <SwiperButton variant="next" className="my-auto ml-auto w-6 h-6 md:w-8 md:h-8" />
+          <div
+            className={`category-bg absolute inset-y-0 right-0 z-10 flex w-10 pr-1 md:w-16 ${
+              category?.data?.length < 10 && 'md:hidden'
+            }`}
+          >
+            <SwiperButton variant="next" className="my-auto ml-auto h-6 w-6 md:h-8 md:w-8" />
           </div>
         )}
       </SwiperWrapper>
