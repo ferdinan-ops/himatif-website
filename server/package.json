@@ -14,8 +14,7 @@
     "@strapi/plugin-users-permissions": "4.9.2",
     "@strapi/provider-upload-cloudinary": "^4.9.2",
     "@strapi/strapi": "4.9.2",
-    "mysql": "2.18.1",
-    "strapi-plugin-vercel-deploy": "^1.4.0"
+    "mysql": "2.18.1"
   },
   "author": {
     "name": "A Strapi developer"
