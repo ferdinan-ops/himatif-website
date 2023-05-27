@@ -9,6 +9,9 @@ module.exports = ({ env }) => ({
       },
       actionOptions: {
         upload: {},
+        uploadStream: {
+          folder: "himatif-postgre",
+        },
         delete: {},
       },
     },
