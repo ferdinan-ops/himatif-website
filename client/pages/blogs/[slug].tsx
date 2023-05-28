@@ -33,9 +33,7 @@ export default function Blog({ blog }: BlogProps) {
           <Share url={`${process.env.NEXT_PUBLIC_BLOG_URI}/${attributes.slug}`} meta={meta} />
         </div>
 
-        <div className="relative mx-auto mb-10 mt-6 h-80 w-full overflow-hidden rounded-lg border md:mb-20 md:mt-10 md:h-[450px] xl:h-[600px] xl:w-10/12">
-          <Image src={attributes.thumbnail.data.attributes.url} alt={attributes.judul} fill className="object-cover" />
-        </div>
+        <img src={attributes.thumbnail.data.attributes.url} alt={attributes.judul} className='w-full mb-10 mt-6 rounded-lg border mx-auto xl:w-10/12 md:mb-20 md:mt-10' />
 
         <div className="mx-auto w-full text-font-black md:w-10/12 xl:w-8/12">
           <ReactMarkdown
@@ -48,11 +46,13 @@ export default function Blog({ blog }: BlogProps) {
             prose-h2:text-xl prose-h3:text-[19px] 
             prose-h4:text-lg prose-h5:text-[17px]
             prose-h6:text-xs prose-a:text-primary
-            prose-img:rounded-[20px] lg:prose-headings:pt-10
+            lg:prose-headings:pt-10
             lg:prose-h1:text-[28px] lg:prose-h2:text-[22px]
             lg:prose-h3:text-xl lg:prose-h4:text-lg
             lg:prose-h5:text-base
-            lg:prose-h6:text-sm"
+            lg:prose-h6:text-sm 
+            prose-img:border
+            prose-img:rounded-sm"
           >
             {attributes.konten}
           </ReactMarkdown>
