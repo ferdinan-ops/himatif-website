@@ -17,7 +17,8 @@ export default function Blog({ blog }: BlogProps) {
   const meta: IBlogMeta = {
     title: attributes.judul,
     description: attributes.deskripsi,
-    image: attributes.thumbnail.data.attributes.url
+    image: attributes.thumbnail.data.attributes.url,
+    category: attributes.kategori.data.attributes.nama
   }
 
   return (
@@ -29,7 +30,7 @@ export default function Blog({ blog }: BlogProps) {
             <span>{formatDate(attributes.tanggal)}</span>
           </div>
           <h1 className="my-2 text-center text-xl font-bold md:my-4 md:text-3xl">{attributes.judul}</h1>
-          <Share url={`${process.env.NEXT_PUBLIC_BLOG_URI}/${attributes.slug}`} />
+          <Share url={`${process.env.NEXT_PUBLIC_BLOG_URI}/${attributes.slug}`} meta={meta} />
         </div>
 
         <div className="relative mx-auto mb-10 mt-6 h-80 w-full overflow-hidden rounded-lg border md:mb-20 md:mt-10 md:h-[450px] xl:h-[600px] xl:w-10/12">
