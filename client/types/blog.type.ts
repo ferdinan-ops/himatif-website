@@ -34,6 +34,7 @@ export interface IBlogMeta {
   category?: string
   title?: string
   image?: string
+  slug?: string
 }
 
 export interface IBlogData {
