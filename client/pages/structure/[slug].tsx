@@ -1,16 +1,18 @@
 import { GetServerSideProps } from 'next/types'
 
 import { Divisi, Container, Dropdown, Layout } from '@/components'
-import { getDivisi, getYears } from '@/lib/api'
+import { getDivisi, getStructureOrganization, getYears } from '@/lib/api'
 import { IDivisi, IYearMember } from '@/types/member.type'
+import { IOrganizationStructure } from '@/types/himatif.type'
 
 interface StructureDetailProps {
   latestYear: string
   allYears: [string]
   divisi: IDivisi[]
+  organizationStructure: string
 }
 
-export default function StructureDetail({ allYears, divisi, latestYear }: StructureDetailProps) {
+export default function StructureDetail({ allYears, divisi, latestYear, organizationStructure }: StructureDetailProps) {
   return (
     <Layout title="Blogs ~ Himpunan Mahasiswa Teknik Informatika">
       <Container className="my-[96px] py-5 pb-14 font-sans text-font-black xl:py-20">
@@ -21,7 +23,7 @@ export default function StructureDetail({ allYears, divisi, latestYear }: Struct
           <Dropdown years={allYears} />
         </div>
         <img
-          src="/structure-3.png"
+          src={organizationStructure}
           alt="struktur organisasi HIMATIF"
           className="mx-auto w-full rounded-lg xl:w-10/12"
         />
@@ -45,6 +47,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const { data: divisi } = await getDivisi()
   const { data: years } = await getYears()
+  const { data: organizationStructure } = await getStructureOrganization()
+
+  const data: IOrganizationStructure = organizationStructure.data[0]
 
   const allYears = years.data.map((year: IYearMember) => year.attributes.tahun_angkatan)
 
@@ -52,7 +57,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       divisi: divisi.data,
       allYears,
-      latestYear: slug
+      latestYear: slug,
+      organizationStructure: data.attributes.gambar_struktur.data.attributes.url
     }
   }
 }

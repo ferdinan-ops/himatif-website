@@ -31,6 +31,7 @@ interface Pagination {
 
 export interface IBlogMeta {
   description?: string
+  category?: string
   title?: string
   image?: string
 }

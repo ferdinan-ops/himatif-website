@@ -8,6 +8,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ member }) => {
   const { attributes } = member
+  const defaultPhoto = 'https://res.cloudinary.com/dwaccl8ae/image/upload/v1685192098/himatif-postgre/male_9f97704354.png'
   return (
     <article>
       <div className="relative h-[242px] w-[216px] overflow-hidden rounded-2xl font-sans tracking-wide focus:cursor-grab xl:h-[340px] xl:w-[350px]">
@@ -15,7 +16,7 @@ const Card: React.FC<CardProps> = ({ member }) => {
           src={
             attributes.photo?.data?.attributes.url
               ? attributes.photo?.data?.attributes.url
-              : `https://source.unsplash.com/random?${member.attributes.divisi}`
+              : defaultPhoto
           }
           alt={attributes.nama}
           className="object-cover"
