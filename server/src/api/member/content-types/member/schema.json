@@ -24,6 +24,7 @@
       "type": "enumeration",
       "enum": [
         "Ketua",
+        "Wakil Ketua",
         "Sekretaris",
         "Bendahara",
         "Anggota"
