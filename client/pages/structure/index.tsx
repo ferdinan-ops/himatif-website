@@ -14,7 +14,7 @@ interface StructureProps {
 
 export default function Structure({ allYears, divisi, latestYear, organizationStructure }: StructureProps) {
   return (
-    <Layout title="Blogs ~ Himpunan Mahasiswa Teknik Informatika">
+    <Layout title="Struktur Organisasi ~ Himpunan Mahasiswa Teknik Informatika">
       <Container className="my-[96px] py-5 pb-14 font-sans text-font-black xl:py-20">
         <div className="mx-auto flex flex-col items-center gap-8 pb-10 md:w-8/12 xl:w-6/12 xl:pb-14">
           <h1 className="text-center text-lg font-bold xl:text-3xl">

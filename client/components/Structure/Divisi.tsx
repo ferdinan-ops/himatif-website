@@ -35,7 +35,7 @@ const Divisi: React.FC<DivisiProps> = ({ title, latestYear, slug }) => {
               <Card member={member} />
             </SwiperSlide>
           ))}
-        {members && members.data.length > 4 && (
+        {members && members.data.length > 3 && (
           <div className="mt-5 flex justify-end">
             <div className="flex gap-4 md:gap-5">
               <SwiperButton variant="prev" className="h-8 w-8 border border-slate-400 md:h-10 md:w-10" />
